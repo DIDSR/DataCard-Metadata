@@ -1,3 +1,4 @@
+import os
 import time
 import pandas as pd
 import numpy as np
@@ -166,6 +167,7 @@ def record_level_completeness_check(dataset_df, required_fields, available_heade
     if visualize:
 
         if savefig:
+            os.makedirs('./output', exist_ok=True)
             timestr = time.strftime("%Y%m%d_%H%M%S")
 
         fig1,ax1 = plt.subplots(figsize=(16,4))
