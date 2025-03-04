@@ -7,10 +7,11 @@ import argparse
 
 def main():
     parser = argparse.ArgumentParser(description='Provide dataset metadata file and reference dictionary.')
-    # parser.add_argument('--path', type=str, help='(str) Folder to read')
     parser.add_argument('--data_path', type=str, default='None', help='Path to dataset metadata file')
     parser.add_argument('--reference_path', type=str, default='None', help='Path to metadata reference dictionary')
     args = parser.parse_args()
+
+    os.makedirs('output', exist_ok=True)
 
     # metadata_reference_path = args.reference_path
     # dataset_path = args.data_path

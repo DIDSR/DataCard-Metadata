@@ -11,8 +11,11 @@ The file inputs are currently hard-coded.
 ## Repo organization
 
 `dcard_completeness_main.py` - Main python module
+
 `io_utils.py` - Functions for reading files and producing plots
+
 `score_utils.py` - Functions for calculating completeness metrics
+
 `field_matching_utils.py` - Functions for matching dataset field names with required field names
 
 ## Usage
