@@ -20,7 +20,7 @@ def main():
     metadata_reference_path = '/projects01/didsr-aiml/tahsin.rahman/dcard-completeness/data_files/metadata_dictionary.json'
     completeness_check_level = 'Core Fields'
     metadata_reference_dictionary = get_dictionary(metadata_reference_path,completeness_check_level)
-    required_fields = metadata_reference_dictionary.keys()
+    required_fields = list(metadata_reference_dictionary.keys())
 
     # Step 2: Load the dataset
     # This step loads the dataset (a multi-column CSV file) into a pandas DataFrame. Each column represents a metadata attribute (e.g., 'PatientID', 'Modality'), and each row represents a data point.
@@ -33,10 +33,11 @@ def main():
     # - Unexpected Headers: Fields present in the dataset that are not part of the required fields.
 
     header_matching_methods = {
-        'strict':(True,None),
+        'strict':(False,None),
         'dictionary':(True,{'field_dictionary':metadata_reference_dictionary}),
         'soft': (False,None),
         'fuzzy': (False,{'threshold':80}),
+        'UA':(False,{'ranking_method':'fuzzy','limit':4})  # 'fuzzy' or 'LM'
     }
 
     if dataset_df is not None and required_fields:

@@ -1,4 +1,6 @@
-
+import time
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 import json
 import re
 import warnings
@@ -169,3 +171,55 @@ def find_key_path(d, target_key=None, key_path=None):
             if result:
                 return result
     return None
+
+def plot_completeness_barchart(df_plot, available_list = None, plot_title='Completeness', plot_colors=['#5577DD','#DD3333'], add_text=True, savefig=False):
+    fig,ax = plt.subplots(figsize=(16,4))
+    df_plot.plot(ax=ax,kind='bar', stacked=True, figsize=(12,6), color=plot_colors,edgecolor='k')
+    if add_text:
+        add_text_sbarchart(ax, df_plot, fontsize=8)
+    plt.title(plot_title)
+    plt.xlabel('Columns')
+    plt.ylabel('Percentage (%)')
+    plt.xticks(rotation=45,ha='right')
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+    
+    if available_list is not None:
+        for i, abar in enumerate(ax.containers[1]):
+            tick_label = ax.get_xticklabels()[i].get_text()
+            if tick_label not in available_list:
+                abar.set_color('#FFFFFF')
+                abar.set_edgecolor('k')
+                abar.set_hatch('//')
+        # Custom legend elements needed
+        legend_patches = [
+            mpatches.Patch(color=plot_colors[0], label = 'Available (%)'),
+            mpatches.Patch(color=plot_colors[1], label = 'Unavailable (%)'),
+            mpatches.Patch(facecolor='#FFFFFF', edgecolor='k', hatch = '//', label = 'Header Missing')
+        ]
+        plt.legend(handles=legend_patches, loc='upper right', facecolor='white', framealpha=1)
+    else:
+        plt.legend(['Available (%)', 'Unavailable (%)'], loc='upper right', facecolor='white', framealpha=1)
+    
+    if savefig:
+        timestr = time.strftime("%Y%m%d_%H%M%S")
+        fig.savefig('output/'+plot_title+'_'+timestr+'.png',bbox_inches='tight',pad_inches=0.1,facecolor='w')
+
+    return 0
+    
+
+
+def add_text_sbarchart(ax, df_plot, fontsize):
+    bars = ax.patches
+    bar_width = bars[0].get_width()
+
+    for i, (index, row) in enumerate(df_plot.iterrows()):
+        avail = row.iloc[0]
+        missing = row.iloc[1]
+        x_pos = i
+
+        if not (pd.isna(avail) or pd.isna(missing)):
+            if avail > 0:
+                ax.text(x_pos, avail/2, f'{avail:.1f}%', ha='center', va='center', rotation=90, color='white', fontsize=fontsize)
+            if missing > 0:
+                ax.text(x_pos, avail + (missing/2), f'{missing:.1f}%', ha='center', va='center', rotation=90, color='white', fontsize=fontsize)
+    return 0
