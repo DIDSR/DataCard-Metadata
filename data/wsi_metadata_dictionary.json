@@ -1,0 +1,635 @@
+{
+    "General Fields": {
+        "Core Fields": {
+            "Patient Information": {
+                "Patient ID": [
+                    "Patient Identifier",
+                    "Unique Patient ID",
+                    "DICOM Patient ID"
+                ],
+                "Patient Birth Date/Age": [
+                    "Birth Date",
+                    "Date of Birth",
+                    "DOB",
+                    "Age",
+                    "Patient Age",
+                    "Patient's Age",
+                    "Age at dx"
+                ],
+                "Patient Sex": [
+                    "Sex",
+                    "Gender"
+                ],
+                "History/Prior": [
+                    "History",
+                    "Prior",
+                    "Medical History",
+                    "Patient History"
+                ],
+                "Race": [
+                    "Demographic Group"
+                ],
+                "Ethnicity": [
+                    "Ethnic Background",
+                    "Cultural Group"
+                ]
+            },
+            "Study Information": {
+                "Study ID": [
+                    "Study Accession Number",
+                    "Study Identifier"
+                ],
+                "Study Date": [
+                    "StudyDate",
+                    "Acquisition Date",
+                    "Exam Date",
+                    "Date/Time",
+                    "Acquisition Date/Time",
+                    "Date"
+                ],
+                "Study Time": [
+                    "Acquisition Time",
+                    "StudyTime",
+                    "Exam Time",
+                    "Time"
+                ]
+            },
+            "Series Information": {
+                "Series Number": [
+                    ""
+                ],
+                "Modality": [
+                    "Scan Type",
+                    "Image Modality",
+                    "Imaging Modality"
+                ]
+            },
+            "Image Information": {
+                "Image ID": [
+                    "DICOM Image UID",
+                    "ImageID",
+                    "Image Identifier",
+                    "File Name"
+                ],
+                "Image Type": [
+                    "ImageType",
+                    "Image Category",
+                    "Modality Type"
+                ],
+                "Resolution/MPP": [
+                    "Image Resolution",
+                    "Pixel Resolution",
+                    "DPI",
+                    "MPP"
+                ],
+                "Magnification": [
+                    "AppMag"
+                ],
+                "Scan Date": [
+                    "Date"
+                ],
+                "Scanner Model": [
+                    ""
+                ],
+                "Vendor": [
+                    "Manufacturer"
+                ],
+                "File Format": [
+                    "Format",
+                    "FileFormat",
+                    "File Type"
+                ],
+                "Bits Allocated ": [
+                    ""
+                ],
+                "Bits Stored": [
+                    "Bit Depth",
+                    "BitsStored",
+                    "Stored Bits"
+                ],
+                "High Bit": [
+                    ""
+                ],
+                "Pixel Spacing": [
+                    "PixelSpacing",
+                    "Spacing Between Pixels",
+                    "Pixel Density",
+                    "Image Spacing",
+                    "Imager Pixel Spacing"
+                ],
+                "Color Space": [
+                    "ICC Profile"
+                ],
+                "Image Width": [
+                    "OriginalWidth"
+                ],
+                "Image Height": [
+                    "OriginalHeight"
+                ],
+                "Image Depth": [
+                    ""
+                ],
+                "Image Channels": [
+                    "Number of Channels"
+                ],
+                "Image Bit Depth": [
+                    ""
+                ],
+                "File Size": [
+                    ""
+                ],
+                "Tile Width": [
+                    ""
+                ],
+                "Tile Height": [
+                    ""
+                ],
+                "Compression": [
+                    ""
+                ],
+                "Compression Ratio": [
+                    ""
+                ],
+                "Compression Method": [
+                    ""
+                ]
+            },
+            "Specimen Information": {
+                "Specimen ID": [
+                    ""
+                ],
+                "Specimen Type": [
+                    ""
+                ],
+                "Fixative Type": [
+                    ""
+                ],
+                "Staining Method": [
+                    ""
+                ],
+                "Staining Protocol": [
+                    ""
+                ]
+            },
+            "Annotation Information": {
+                "Annotation": [
+                    ""
+                ],
+                "Annotation Date": [
+                    ""
+                ],
+                "Annotator": [
+                    ""
+                ],
+                "Annotation Format": [
+                    ""
+                ]
+            },
+            "Image Acquisition Information": {
+                "Exposure Time": [
+                    ""
+                ],
+                "Illumination Source": [
+                    ""
+                ],
+                "Objective Lens": [
+                    ""
+                ],
+                "DPI": [
+                    ""
+                ],
+                "Color Correction": [
+                    ""
+                ]
+            }
+        },
+        "Additional Fields": {
+            "Photometric Interpretation": [
+                "Photometry"
+            ],
+            "Bits Stored": [
+                "Bit Depth",
+                "BitsStored",
+                "Stored Bits"
+            ],
+            "Pixel Padding Value": [
+                ""
+            ],
+            "Pixel Padding Range Limit": [
+                ""
+            ],
+            "Window Center": [
+                ""
+            ],
+            "Window Width": [
+                ""
+            ],
+            "Rescale Intercept": [
+                ""
+            ],
+            "Rescale Slope": [
+                ""
+            ],
+            "Window Center & Width Explanation": [
+                "Window Center Explanation",
+                "Window Width Explanation"
+            ]
+        }
+    },
+    "File Type Specific Fields": {
+        "SVS": {
+            "Image Path": [
+                ""
+            ],
+            "Description": [
+                "Details"
+            ],
+            "Apparent Magnification": [
+                "Magnification",
+                "AppMag"
+            ],
+            "StripeWidth": [
+                ""
+            ],
+            "ScanScope ID": [
+                ""
+            ],
+            "Filename": [
+                ""
+            ],
+            "Date": [
+                ""
+            ],
+            "Time": [
+                ""
+            ],
+            "Time Zone": [
+                ""
+            ],
+            "User": [
+                ""
+            ],
+            "Parmset": [
+                ""
+            ],
+            "MPP": [
+                ""
+            ],
+            "Left": [
+                ""
+            ],
+            "Top": [
+                ""
+            ],
+            "LineCameraSkew": [
+                ""
+            ],
+            "LineAreaXOffset": [
+                ""
+            ],
+            "LineAreaYOffset": [
+                ""
+            ],
+            "Focus Offset": [
+                ""
+            ],
+            "DSR ID": [
+                ""
+            ],
+            "ImageID": [
+                ""
+            ],
+            "Exposure Time": [
+                ""
+            ],
+            "Exposure Scale": [
+                ""
+            ],
+            "DisplayColor": [
+                ""
+            ],
+            "SessionMode": [
+                ""
+            ],
+            "OriginalWidth": [
+                ""
+            ],
+            "OriginalHeight": [
+                ""
+            ],
+            "ICC Profile": [
+                ""
+            ],
+            "Image Type": [
+                ""
+            ],
+            "Image Width": [
+                ""
+            ],
+            "Image Height": [
+                ""
+            ],
+            "Image Depth": [
+                ""
+            ],
+            "Image Channels": [
+                ""
+            ],
+            "Image Bit Depth": [
+                ""
+            ],
+            "File Size": [
+                ""
+            ],
+            "Compression Type": [
+                ""
+            ],
+            "Compression Quality": [
+                ""
+            ],
+            "Compression Ratio": [
+                ""
+            ],
+            "Organization": [
+                ""
+            ],
+            "Tile Width": [
+                ""
+            ],
+            "Tile Height": [
+                ""
+            ]
+        },
+        "DICOM": {
+            "Patients Name": [
+                ""
+            ],
+            "Patient ID": [
+                ""
+            ],
+            "Patient's Birth Date": [
+                ""
+            ],
+            "Patient's Sex": [
+                ""
+            ],
+            "Study Instance UID": [
+                ""
+            ],
+            "Series Instance UID": [
+                ""
+            ],
+            "Study ID": [
+                ""
+            ],
+            "Series Number": [
+                ""
+            ],
+            "Instance Number": [
+                ""
+            ],
+            "Study Date": [
+                ""
+            ],
+            "Study Time": [
+                ""
+            ],
+            "Accession Number": [
+                ""
+            ],
+            "Modality": [
+                ""
+            ],
+            "Manufacturer": [
+                ""
+            ],
+            "Manufacturer's Model Name": [
+                ""
+            ],
+            "Software Versions": [
+                ""
+            ],
+            "SOP Instance UID": [
+                ""
+            ],
+            "SOP Class UID": [
+                ""
+            ],
+            "Rows": [
+                ""
+            ],
+            "Columns": [
+                ""
+            ],
+            "Pixel Spacing": [
+                ""
+            ],
+            "Bits Allocated": [
+                ""
+            ],
+            "Bits Stored": [
+                ""
+            ],
+            "High Bit": [
+                ""
+            ]
+        },
+        "NDPI": {
+            "File Path": [
+                ""
+            ],
+            "Description": [
+                "Details"
+            ],
+            "Magnification": [
+                "Optical Magnification"
+            ],
+            "MPP": [
+                ""
+            ],
+            "Image Width": [
+                ""
+            ],
+            "Image Height": [
+                ""
+            ],
+            "Tile Width": [
+                ""
+            ],
+            "Tile Height": [
+                ""
+            ],
+            "Bits per sample": [
+                "Image Bit Depth"
+            ],
+            "Compression": [
+                "Compression Type"
+            ],
+            "Compression Quality": [
+                ""
+            ],
+            "Image Depth": [
+                ""
+            ],
+            "Image Channels": [
+                "Number of channels"
+            ],
+            "Scanner Model": [
+                ""
+            ],
+            "Scanner Serial Number": [
+                ""
+            ],
+            "Scan Date": [
+                "Date"
+            ],
+            "Scan Time": [
+                "Time"
+            ],
+            "User": [
+                ""
+            ],
+            "Exposure Time": [
+                ""
+            ],
+            "Objective Lens": [
+                ""
+            ],
+            "Z Stack Positions": [
+                ""
+            ],
+            "File Size": [
+                ""
+            ],
+            "Patient ID": [
+                ""
+            ],
+            "Accention Number": [
+                ""
+            ],
+            "Image ID": [
+                ""
+            ],
+            "Software Version": [
+                ""
+            ],
+            "X Offset": [
+                ""
+            ],
+            "Y Offset": [
+                ""
+            ],
+            "Z Offset": [
+                ""
+            ]
+        },
+        "SCN": {
+            "File Path": [
+                ""
+            ],
+            "Description": [
+                "Details"
+            ],
+            "Magnification": [
+                "Optical Magnification"
+            ],
+            "MPP": [
+                ""
+            ],
+            "Image Width": [
+                ""
+            ],
+            "Image Height": [
+                ""
+            ],
+            "Tile Width": [
+                ""
+            ],
+            "Tile Height": [
+                ""
+            ],
+            "Bits per sample": [
+                "Image Bit Depth"
+            ],
+            "Compression": [
+                "Compression Type"
+            ],
+            "Compression Quality": [
+                ""
+            ],
+            "Image Depth": [
+                ""
+            ],
+            "Image Channels": [
+                "Number of channels"
+            ],
+            "Scanner Model": [
+                ""
+            ],
+            "Vendor": [
+                "Scanner Manufacturer",
+                "Manufacturer"
+            ],
+            "Scanner Serial Number": [
+                ""
+            ],
+            "Scan Date": [
+                "Date"
+            ],
+            "Scan Time": [
+                "Time"
+            ],
+            "User": [
+                ""
+            ],
+            "Exposure Time": [
+                ""
+            ],
+            "Objective Lens": [
+                ""
+            ],
+            "Z Stack Positions": [
+                ""
+            ],
+            "File Size": [
+                ""
+            ],
+            "Patient ID": [
+                ""
+            ],
+            "Accession Number": [
+                ""
+            ],
+            "Image ID": [
+                ""
+            ],
+            "Software Version": [
+                ""
+            ],
+            "X Offset": [
+                ""
+            ],
+            "Y Offset": [
+                ""
+            ],
+            "Z Offset": [
+                ""
+            ],
+            "Session Mode": [
+                ""
+            ],
+            "Focus Offset": [
+                ""
+            ],
+            "Line Camera Skew": [
+                ""
+            ],
+            "Line Area X Offset": [
+                ""
+            ],
+            "Line Area y Offset": [
+                ""
+            ]
+        }
+    }
+}

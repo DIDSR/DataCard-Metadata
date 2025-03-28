@@ -7,26 +7,36 @@ import argparse
 
 def main():
     parser = argparse.ArgumentParser(description='Provide dataset metadata file and reference dictionary.')
-    parser.add_argument('--data_path', type=str, default='None', help='Path to dataset metadata file')
-    parser.add_argument('--reference_path', type=str, default='None', help='Path to metadata reference dictionary')
+    parser.add_argument('--data_path', type=str, default=None, help='Path to dataset metadata file')
+    parser.add_argument('--reference_path', type=str, default=None, help='Path to metadata reference dictionary')
+    parser.add_argument('--cc_level', type=str, default=None, help='The level at which completeness should be assessed.')
     args = parser.parse_args()
 
-    os.makedirs('output', exist_ok=True)
-
     # metadata_reference_path = args.reference_path
-    # dataset_path = args.data_path
+    # metadata_file_path = args.data_path
+    # completeness_check_level = args.cc_level
+    # assert metadata_reference_path is not None, 'Reference dictionary path not specified.'
+    # assert metadata_file_path is not None, 'Metadata file path not specified.'
+
+    # Hardcoded argument values
+    metadata_reference_path = 'data/dm_metadata_dictionary.json'
+    completeness_check_level = 'Core Fields'
+    metadata_file_path ='/projects01/didsr-aiml/common_data/VinDr-Mammo/raw-images/vindr-mammo/1.0.0/metadata.csv'
+
+    # Step 0: Create output directory to store visualizations
+    os.makedirs('output', exist_ok=True)
 
     # Step 1: Load required metadata fields
     # This step reads the required fields from a CSV file that contains a single column listing all expected metadata attributes (e.g., 'PatientID', 'Modality', 'StudyDate').
-    metadata_reference_path = '/projects01/didsr-aiml/tahsin.rahman/dcard-completeness/data_files/metadata_dictionary.json'
-    completeness_check_level = 'Core Fields'
-    metadata_reference_dictionary = get_dictionary(metadata_reference_path,completeness_check_level)
+    metadata_reference_dictionary = get_dictionary(metadata_reference_path,completeness_check_level,flatten=True)
     required_fields = list(metadata_reference_dictionary.keys())
 
     # Step 2: Load the dataset
-    # This step loads the dataset (a multi-column CSV file) into a pandas DataFrame. Each column represents a metadata attribute (e.g., 'PatientID', 'Modality'), and each row represents a data point.
-    dataset_path ='/projects01/didsr-aiml/common_data/VinDr-Mammo/raw-images/vindr-mammo/1.0.0/metadata.csv'  # Replace with your dataset's file path
-    dataset_df = load_metadata_file(dataset_path)
+    # This step loads the dataset (a multi-column CSV/XLS file) into a pandas DataFrame. Each column represents a metadata attribute (e.g., 'PatientID', 'Modality'), and each row represents a data point.
+    metadata_df = load_metadata_file(metadata_file_path)
+
+    if metadata_df is not None:
+        print(f"Assessing completeness for metadata file '{os.path.basename(metadata_file_path)}'")
 
     # Step 3: Perform dataset-level completeness check
     # This checks if the dataset's headers (column names) match the required fields.
@@ -41,8 +51,8 @@ def main():
         'UA':(False,{'ranking_method':'fuzzy','limit':4})  # 'fuzzy' or 'LM'
     }
 
-    if dataset_df is not None and required_fields:
-        completeness_report = dataset_level_completeness_check(dataset_df, required_fields, header_matching_methods)
+    if metadata_df is not None and required_fields:
+        completeness_report = dataset_level_completeness_check(metadata_df, required_fields, header_matching_methods)
 
         # Extract missing and unexpected headers for clarity
         available_header_map = completeness_report["available_header_map"]
@@ -78,13 +88,15 @@ def main():
 
         # Step 6: Report Completeness Score
         print(f"Completeness Score: {completeness_score:.2f}")
+
+        # Step 7: Perform record-level completeness check
+        # This checks individual columns and rows in the metadata file and reports completion information
+        record_level_results = record_level_completeness_check(metadata_df, required_fields, available_header_map,visualize=True,savefig=True)
     else:
         # Handle cases where either the dataset or required fields failed to load.
         print("Failed to load dataset or required fields.")
 
-    # Step 4: Perform record-level completeness check
-    # This checks individual columns and rows in the metadata file and reports completion information
-    record_level_results = record_level_completeness_check(dataset_df, required_fields, available_header_map,visualize=True,savefig=True)
+    
 
 if __name__ == "__main__":
     main()

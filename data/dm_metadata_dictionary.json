@@ -1,0 +1,238 @@
+{
+    "General Fields": {
+        "Description": "Core fields used for Completeness assessment",
+        "Core Fields": {
+            "Patient ID": [
+                "Patient Identifier",
+                "Unique Patient ID",
+                "DICOM Patient ID"
+            ],
+            "Patient Birth Date/Age": [
+                "Birth Date",
+                "Date of Birth",
+                "DOB",
+                "Age",
+                "Patient Age",
+                "Patient's Age"
+            ],
+            "Patient Sex": [
+                "Patient's Sex",
+                "Sex",
+                "Gender"
+            ],
+            "History/Prior": [
+                "History",
+                "Prior",
+                "Medical History",
+                "Patient History"
+            ],
+            "Race": [
+                "Demographic Group"
+            ],
+            "Ethnicity": [
+                "Ethnic Background",
+                "Cultural Group"
+            ],
+            "History/Family": [
+                "First Degree Relatives",
+                "Family History"
+            ],
+            "Marital status": [
+                "Civil Status",
+                "Married"
+            ],
+            "ZIP Code": [
+                "Postal Code",
+                "ZIP",
+                "Area Code"
+            ],
+            "Study ID": [
+                "Study Accession Number",
+                "Study Identifier"
+            ],
+            "Study Date": [
+                "StudyDate",
+                "Acquisition Date",
+                "Exam Date",
+                "Date/Time",
+                "Acquisition Date/Time"
+            ],
+            "Study Time": [
+                "Acquisition Time",
+                "StudyTime",
+                "Exam Time"
+            ],
+            "Modality": [
+                "Scan Type",
+                "Image Modality",
+                "Imaging Modality"
+            ],
+            "Breast Orientation": [
+                "View Position",
+                "Breast Projection",
+                "Projection",
+                "Mammography View",
+                "Breast View",
+                "View",
+                "View Type"
+            ],
+            "Laterality": [
+                "Left or Right Breast",
+                "Image Laterality"
+            ],
+            "Image Type": [
+                "ImageType",
+                "Image Category",
+                "Modality Type"
+            ],
+            "Image ID": [
+                "DICOM Image UID",
+                "ImageID",
+                "Image Identifier",
+                "File Name"
+            ],
+            "Image Dimension": [
+                "Image Size",
+                "Dimensions",
+                "ImageDimension",
+                "Rows",
+                "Columns",
+                "Height",
+                "Width"
+            ],
+            "Resolution": [
+                "Image Resolution",
+                "Pixel Resolution",
+                "DPI"
+            ],
+            "File Format": [
+                "Format",
+                "FileFormat",
+                "File Type"
+            ],
+            "Compression Type": [
+                "Compression Method",
+                "Image Compression",
+                "CompressionType"
+            ],
+            "Bits Stored": [
+                "Bit Depth",
+                "BitsStored",
+                "Stored Bits"
+            ],
+            "Pixel Spacing": [
+                "PixelSpacing",
+                "Spacing Between Pixels",
+                "Pixel Density",
+                "Image Spacing",
+                "Imager Pixel Spacing"
+            ],
+            "Manufacturer": [
+                "Device Manufacturer",
+                "Scanner Manufacturer"
+            ],
+            "Manufacturer/Model": [
+                "Manufacturer's Model Name",
+                "Equipment Model",
+                "Device Model",
+                "Scanner Model",
+                "Scanner",
+                "Device"
+            ],
+            "Manufacturer/Year": [
+                "Device Year",
+                "Model Year"
+            ],
+            "Manufacturer/Regulatory": [
+                "Device Manufacturer Regulatory"
+            ]
+        },
+        "Additional Fields": {
+            "Photometric Interpretation": [
+                "Photometry"
+            ],
+            "Bits Stored": [
+                "Bit Depth",
+                "BitsStored",
+                "Stored Bits"
+            ],
+            "Pixel Padding Value": [
+                ""
+            ],
+            "Pixel Padding Range Limit": [
+                ""
+            ],
+            "Window Center": [
+                ""
+            ],
+            "Window Width": [
+                ""
+            ],
+            "Rescale Intercept": [
+                ""
+            ],
+            "Rescale Slope": [
+                ""
+            ],
+            "Window Center & Width Explanation": [
+                "Window Center Explanation",
+                "Window Center & Width Explanation"
+            ]
+        }
+    },
+    "Modality Specific Fields": {
+        "Description": "Additional expected fields for specific mammography modalities.",
+        "DBT": {
+            "Projection Views": [
+                "Number of projection views\u00a0",
+                "Projections"
+            ],
+            "Reconstruction Method": [
+                "Reconstruction Technique",
+                "Reconstruction Mode"
+            ],
+            "Slice Thickness": [
+                "Slice Width"
+            ],
+            "Angular Range": [
+                "Angle Range",
+                "Angle"
+            ]
+        }
+    },
+    "Task Specific Fields": {
+        "Description": "Additional expected fields for specific mammography modalities.",
+        "Density Estimation": {
+            "Breast Density": [
+                "Density",
+                "Breast Composition"
+            ]
+        },
+        "Cancer Detection": {
+            "Breast Density": [
+                "Density",
+                "Breast Composition",
+                "ACR",
+                "ACR Value"
+            ],
+            "BIRADS": [
+                "BI-RADS",
+                "Breast BIRADS",
+                "BIRADS Score",
+                "Finding BIRADS"
+            ],
+            "Findings": [
+                "Finding Categories",
+                "Findings Notes"
+            ],
+            "Finding location": [
+                "Lesion Annotation",
+                "Annotation",
+                "xmin",
+                "xmax",
+                "ymin",
+                "ymax"
+            ]
+        }
+    }
+}

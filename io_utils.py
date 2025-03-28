@@ -143,15 +143,49 @@ def load_required_fields_csv(file_path):
         print(f"Error loading required fields CSV: {e}")
         return None
 
-def get_dictionary(path, target_key=None):
+def flatten_dictionary(nested_dict):
+    """
+    Flattens a nested dictionary structure.
+    Assumes that all keys at all levels are unique!!
+    """
+    items = []
+    for key, value in nested_dict.items():
+        if isinstance(value, dict):
+            items.extend(flatten_dictionary(value).items())
+        else:
+            items.append((key, value))
+    return dict(items)
+    
+
+def get_dictionary(path, target_key=None, flatten=False):
+    """
+    Load a json file containing a nested-dicitonary structure with unique keys.
+    and return the value corresponding to the target key.
+
+    Args:
+        path (str): Path to the json file.
+        target_key: Key of interest
+
+    Returns:
+        dictionary: Dictionary of items.
+    """
     d = load_json(path)
 
     if target_key is not None:
         key_path = find_key_path(d, target_key)
 
-        for key in key_path:
-            if isinstance(d, dict) and key in d:
-                d = d[key]
+        if key_path is not None:
+            for key in key_path:
+                if isinstance(d, dict) and key in d:
+                    d = d[key]
+        else:
+            print('Key not found. Returning full dictionary')
+    else:
+        print('No key specified. Returning full dictionary')
+
+    if flatten:
+        d = flatten_dictionary(d)
+        
     return d 
 
 
