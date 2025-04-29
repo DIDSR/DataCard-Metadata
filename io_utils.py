@@ -10,15 +10,18 @@ import pandas as pd
 # Functions for metadata file and dictionary I/O
 
 def load_metadata_file(file_path=None,sep=None):
-    """
-    Read a metadata file saved in a standard format.
+    """Reads a metadata file into a pandas dataframe. Automatically infers filetype from extension.
+    Works with CSV, XLS, and XLSX files.
 
-    Args:
-        file_path (str): Path to the file.
+    :param file_path: Path to metadata file, defaults to None which prompts user to enter file path.
+    :type file_path: str
+    :param sep: Field separator in metadata file, defaults to None
+    :type sep: str
+    :return: Pandas dataframe with the loaded metadata
+    :rtype: pd.DataFrame
 
-    Returns:
-        pd.DataFrame: Loaded metadata file as a DataFrame.
     """
+
     if file_path is None:
         file_path = input("Enter the full path to the file (e.g., '/path/to/file.csv'): ").strip("\'\"")
 
@@ -30,8 +33,8 @@ def load_metadata_file(file_path=None,sep=None):
     # and return a pandas dataframe with the metadata
     function_map = {
         'csv' : load_dataset_csv,
-        'json': load_json,
-        'dicom': load_dicom
+        'xls' : load_dataset_xls,
+        'xlsx' : load_dataset_xls,
     }
     function_args = {
         'file_path':file_path,
@@ -46,13 +49,16 @@ def load_metadata_file(file_path=None,sep=None):
 def load_dataset_csv(file_path,sep=','):
     """
     Load a CSV file containing the dataset metadata.
+    
+    :param file_path: Path to metadata file
+    :type file_path: str
+    :param sep: Field separator in metadata file, defaults to ','
+    :type sep: str
+    :return: Pandas dataframe with the loaded metadata
+    :rtype: pd.DataFrame
 
-    Args:
-        file_path (str): Path to the CSV file.
-
-    Returns:
-        pd.DataFrame: Loaded CSV as a DataFrame.
     """
+
     try:
         data = pd.read_csv(file_path,sep=sep)
         return data
@@ -63,16 +69,16 @@ def load_dataset_csv(file_path,sep=','):
 
 def load_json(file_path):
     """
-    To-Do: Add conversion to pd dataframe
-    Load a JSON file from the provided path and return a dictionary or list.
+    Load a JSON file from the provided path
+    
+    :param file_path: Path to json file
+    :type file_path: str
 
-    Args:
-        file_path (str): Path to the JSON file.
+    :return: Parsed JSON data or None
+    :rtype: JSON object
 
-    Returns:
-        dict or list: Parsed JSON content.
-        None: If the file cannot be processed.
     """
+
     try:
         with open(file_path, 'r') as f:
             data = json.load(f)
@@ -81,94 +87,65 @@ def load_json(file_path):
         print(f"Error loading JSON: {e}")
         return None
         
-def load_dicom(file_path):
+
+def load_dataset_xls(file_path):
+
     """
-    ?? This will load dicom metadata for a single data file/point.
-    To-Do:  (1) Output pd dataframe
-            (2) Add parent function to loop over multiple dicom files in a directory and aggregate metadata
-            into a dataset level dataframe
-    Load a DICOM file from the provided path and extract metadata into a dictionary.
-
-    Args:
-        file_path (str): Path to the DICOM file.
-
-    Returns:
-        dict: Metadata extracted from the DICOM file.
-        None: If the file cannot be processed.
-    """
-    try:
-        dicom_data = pydicom.dcmread(file_path)
-        metadata = {elem.tag: elem.value for elem in dicom_data}
-        return metadata
-    except Exception as e:
-        print(f"Error loading DICOM: {e}")
-        return None
-
-def get_required_metadata(file_path=None):
-    """
-    Load the required metadata fields from a CSV file provided by the user.
-
-    Returns:
-        list: List of required metadata fields.
-    """
-    if file_path is None:
-        file_path = input("Enter the full path to the file containing required metadata headers (e.g., '/path/to/file.csv'): ").strip("\'\"")
-
-    required_fields = load_required_fields_csv(file_path)
-
-    if required_fields is None or len(required_fields) == 0:
-        print("Failed to load the required metadata fields file or the file is empty.")
-        return []
-
-    # print(f"Required fields: {required_fields}")
-    return required_fields
-
-def load_required_fields_csv(file_path):
-    """
-    Load a CSV file containing the list of required fields.
-
-    To-Do: This function needs to be made more general so that it can
-    load required fields from a structured required metadata file
-
-    Args:
-        file_path (str): Path to the CSV file.
-
-    Returns:
-        list: List of required metadata fields.
-    """
-    try:
-        data = pd.read_csv(file_path, header=None)  # No header expected
-        return data.iloc[:, 0].dropna().tolist()  # Extract the first column as a list
-    except Exception as e:
-        print(f"Error loading required fields CSV: {e}")
-        return None
-
-def flatten_dictionary(nested_dict):
-    """
-    Flattens a nested dictionary structure.
-    Assumes that all keys at all levels are unique!!
-    """
-    items = []
-    for key, value in nested_dict.items():
-        if isinstance(value, dict):
-            items.extend(flatten_dictionary(value).items())
-        else:
-            items.append((key, value))
-    return dict(items)
+    Load an xls/xlsx file containing the dataset metadata.
     
+    :param file_path: Path to metadata file
+    :type file_path: str
+    :return: Pandas dataframe with the loaded metadata
+    :rtype: pd.DataFrame
 
-def get_dictionary(path, target_key=None, flatten=False):
     """
-    Load a json file containing a nested-dicitonary structure with unique keys.
-    and return the value corresponding to the target key.
 
-    Args:
-        path (str): Path to the json file.
-        target_key: Key of interest
+    try:
+        data = pd.read_excel(file_path)
+        return data
+    except Exception as e:
+        print(f"Error loading dataset XLS: {e}")
+        return None
 
-    Returns:
-        dictionary: Dictionary of items.
+
+def get_field_item(metadata_dictionary,item_key="aliases"):
     """
+    For an input metadata dictionary where each top level key is a field name,
+    get the specified item values for each field. By default, the list of aliases of each field is retrieved.
+    Return a dictionary with the field names as keys and the corresponding items as values.
+    
+    :param metadata_dictionary: Metadata dictionary object
+    :type metadata_dictionary: Dictionary
+    :param item_key: Key name for the item to be retrieved
+    :type item_key: str
+    :return: Dictionary with the field names as keys and the specified items as values
+    :rtype field_item_dict: Dictionary
+
+    """
+
+    field_item_dict = {}
+    for k,v in metadata_dictionary.items():
+        assert item_key in v.keys(), "Specified item not found in metadata dictionary"
+        field_item_dict[k] = v[item_key]
+    return field_item_dict
+
+
+def get_dictionary(path, target_key=None):
+
+    """
+    Load a python dictionary structure from a json file.
+    If a target key is provided, the nested dictionary structure is traversed until the target key is found.
+    The value corresponding to the target key, which should be a dictionary, is returned.
+    
+    :param path: Path to a python dictionary stored in a json file.
+    :type path: str
+    :param target_key: Dictionary key to retrieve the required metadata dictionary from the input nexted dictionary
+    :type target_key: str
+    :return: Target dictionary
+    :rtype d: dictionary
+
+    """
+
     d = load_json(path)
 
     if target_key is not None:
@@ -182,14 +159,26 @@ def get_dictionary(path, target_key=None, flatten=False):
             print('Key not found. Returning full dictionary')
     else:
         print('No key specified. Returning full dictionary')
-
-    if flatten:
-        d = flatten_dictionary(d)
         
     return d 
 
 
 def find_key_path(d, target_key=None, key_path=None):
+
+    """
+    Recursively searches for a target key in a nested dicitonary.
+    Returns the path to the first instance of the key as a list.
+    
+    :param d: Nested dictionary
+    :type d: dictionary
+    :param target_key: Dictionary key
+    :type target_key: str
+    :param key_path: Partial path to target key used for recursion, defaults to None
+    :type key_path: List[str]
+    :return: Full path to target key
+    :rtype key_path: List[str]
+
+    """
     
     if key_path is None:
         key_path = []
@@ -207,6 +196,28 @@ def find_key_path(d, target_key=None, key_path=None):
     return None
 
 def plot_completeness_barchart(df_plot, available_list = None, plot_title='Completeness', plot_colors=['#5577DD','#DD3333'], add_text=True, savefig=False):
+
+    """
+    Plot completeness visualization barchart from dataframe
+    
+    :param df_plot: A matplotlib axis object of the barchart on which to plot the text labels
+    :type df_plot:  pd.DataFrame
+    :param available_list: List of available headers
+    :type available_list: List[str]
+    :param plot_title: Title for plot figure
+    :type plot_title: str
+    :param plot_colors: The two colors to be used in the plot to represent 'Available' and 'Unavailable'.
+        Provided as a list of color hex codes.
+    :type plot_colors: List[str]
+    :param add_text: Flag to add text with completeness levels inside the bars of the chart.
+    :type add_text: bool
+    :param savefig: Flag to save the plot as a png.
+    :type add_text: bool
+    :return: 0
+    :rtype: int
+
+    """
+
     fig,ax = plt.subplots(figsize=(16,4))
     df_plot.plot(ax=ax,kind='bar', stacked=True, figsize=(12,6), color=plot_colors,edgecolor='k')
     if add_text:
@@ -242,7 +253,20 @@ def plot_completeness_barchart(df_plot, available_list = None, plot_title='Compl
     
 
 
-def add_text_sbarchart(ax, df_plot, fontsize):
+def add_text_sbarchart(ax, df_plot, fontsize=8):
+    """
+    Add text labels inside the bars of a completeness visualization barchart
+    
+    :param ax: A matplotlib axis object of the barchart on which to plot the text labels
+    :type ax: Axes
+    :param df_plot: Pandas dataframe with the data for plotting
+    :type df_plot: pd.DataFrame
+    :param fontsize: Fontsize for the text labels
+    :type fontsize: int
+    :return: 0
+    :rtype: int
+
+    """
     bars = ax.patches
     bar_width = bars[0].get_width()
 

@@ -5,9 +5,29 @@ import re
 import warnings
 
 def clean_string(s):
+    """Cleans an input string by replacing all non-alphanumeric characters with "space".
+
+    :param s: Input string
+    :type s: str
+    :return: Cleaned string
+    :rtype: str
+    """
     return re.sub(f'[^a-zA-Z0-9 ]',' ',s).lower()
 
 def strict_field_matching(dataset_fields, required_fields):
+    """
+    Given lists of required fields and dataset fields, returns a mapping from
+    each required field to a dataset field if the required field name is found 
+    in the dataset field name.
+
+    :param dataset_fields: Header fields present in dataset metadata.
+    :type dataset_fields: List[str]
+    :param required_fields: Fields of interest.
+    :type required_fields: List[str]
+    :return: Dictionary with required_fields present in dataset_fields as keys and the corresponding dataset fields as values
+    :rtype: Dictionary
+
+    """
     field_mappings = {}
     for field in required_fields:
         if field in dataset_fields:
@@ -15,6 +35,19 @@ def strict_field_matching(dataset_fields, required_fields):
     return field_mappings
 
 def soft_field_matching(dataset_fields, required_fields):
+    """
+    Given lists of required fields and dataset fields, returns a mapping from
+    each required field to a dataset field if the cleaned required field name is found 
+    in the cleaned dataset field name.
+    
+    :param dataset_fields: Header fields present in dataset metadata.
+    :type dataset_fields: List[str]
+    :param required_fields: Fields of interest.
+    :type required_fields: List[str]
+    :return: Dictionary with required_fields present in dataset_fields as keys and the corresponding dataset fields as values
+    :rtype: Dictionary
+
+    """
     cleaned_dataset_fields = [(clean_string(item), item) for item in dataset_fields]
     field_mappings = {}
     for field in required_fields:
@@ -24,13 +57,31 @@ def soft_field_matching(dataset_fields, required_fields):
                 field_mappings[field] = dataset_field
     return field_mappings
 
-def dictionary_field_matching(dataset_fields, required_fields, field_dictionary=None, soft_matching=True):
+def dictionary_field_matching(dataset_fields, required_fields, field_dictionary=None):
 
-    field_mappings = {}
+    """
+    Given lists of required fields and dataset fields, returns a mapping from
+    each required field to a dataset field if the required field name is found 
+    in the dataset field name. If a field alias dictionary is provided, all cleaned
+    aliases for each required field are checked against each dataset field to
+    find possible matches.
 
-    dataset_fields_cleaned = [(clean_string(item), item) for item in dataset_fields]
+    :param dataset_fields: Header fields present in dataset metadata.
+    :type dataset_fields: List[str]
+    :param required_fields: Fields of interest.
+    :type required_fields: List[str]
+    :param field_dictionary: A dictionary with the required_fields as keys and a list of common variations for each required field as values.
+    :type field_dictionary: dict[str]
+    :return: Dictionary with required_fields present in dataset_fields as keys and the corresponding dataset fields as values
+    :rtype: dict[str]
+
+    """
     
-    if field_dictionary is not None:     
+    if field_dictionary is not None:
+        field_mappings = {}
+
+        dataset_fields_cleaned = [(clean_string(item), item) for item in dataset_fields]     
+
         for field in required_fields:
             if field in field_dictionary:
                 possible_matches = field_dictionary[field]
@@ -40,11 +91,27 @@ def dictionary_field_matching(dataset_fields, required_fields, field_dictionary=
                 if match:
                     field_mappings[field] = match
     else:
-        warnings.warn("Metadata field mapping dictionary path not provided")
+        warnings.warn("Metadata field mapping dictionary path not provided.\nReturning strict matching results")
+        field_mappings = strict_field_matching(dataset_fields, required_fields)
         
     return field_mappings
 
 def fuzzy_field_matching(dataset_fields, required_fields, similarity_threshold=70):
+
+    """Given lists of required fields and dataset fields, returns a mapping from
+    each required field to a dataset field using fuzzy scoring.
+    
+    :param dataset_fields: Header fields present in dataset metadata.
+    :type dataset_fields: List[str]
+    :param required_fields: Fields of interest.
+    :type required_fields: List[str]
+    :param similarity_threshold: Fuzzy score threshold which determines if the match returned through fuzzy matching is acceptable or not.
+    :type similarity_threshold: int
+    :return: Dictionary with required_fields present in dataset_fields as keys and the corresponding dataset fields as values
+    :rtype: Dictionary
+
+    """
+
     field_mappings = {}
 
     # Perform fuzzy matching
@@ -60,17 +127,46 @@ def fuzzy_field_matching(dataset_fields, required_fields, similarity_threshold=7
 
 
 
+def get_fuzzy_matches(dataset_fields, required_fields, limit = 5):
 
-def get_fuzzy_matches(dataset_fields, required_fields, limit = 5, score = fuzz.ratio ):
+    
+    """Given lists of required fields and dataset fields, returns the top N
+    matches from dataset fields for each required field using fuzzy scoring
+
+    :param dataset_fields: Header fields present in dataset metadata.
+    :type dataset_fields: List[str]
+    :param required_fields: Fields of interest.
+    :type required_fields: List[str]
+    :param limit: Number of matches to return
+    :type limit: int
+    :return: Dictionary with required_fields as keys and the N most similar dataset_fields along with similarity scores as values
+    :rtype: Dictionary
+    """
+
     matches = {}
 
     for required_field in required_fields:
-        results = process.extract(required_field, dataset_fields, scorer=score, limit=limit)
+        results = process.extract(required_field, dataset_fields, scorer=fuzz.ratio, limit=limit)
         matches[required_field] = [(field_name, sim_score) for field_name, sim_score, _ in results]
 
     return matches
 
-def get_LM_matches(dataset_fields, required_fields, limit = 5, score = 'cosine', model = '' ):
+def get_LM_matches(dataset_fields, required_fields, limit = 5):
+
+    """Given lists of required fields and dataset fields, returns the top N
+    matches from dataset fields for each required field using cosine-similarity
+    score calculated on SentenceTransformer embeddings for the fields.
+    
+    :param dataset_fields: Header fields present in dataset metadata.
+    :type dataset_fields: List[str]
+    :param required_fields: Fields of interest.
+    :type required_fields: List[str]
+    :param limit: Number of matches to return
+    :type limit: int
+    :return: Dictionary with required_fields as keys and the N most similar dataset_fields along with similarity scores as values
+    :rtype: Dictionary
+
+    """
     try:
         model = SentenceTransformer('/projects01/didsr-aiml/tahsin.rahman/transformer_models/sentence-transformers/all-MiniLM-L6-v2/', local_files_only=True)
         matches = {}
@@ -101,6 +197,24 @@ def get_LM_matches(dataset_fields, required_fields, limit = 5, score = 'cosine',
 
 def ranked_field_matching(dataset_fields, required_fields, ranking_method='fuzzy', limit = 5):
 
+    """Given lists of required fields and dataset fields, performs
+    user-assisted field matching. For each required field, the top N
+    matches found from dataset fields using the method specified by ranking_method 
+    is provided to the user for selection.
+    
+    :param dataset_fields: Header fields present in dataset metadata.
+    :type dataset_fields: List[str]
+    :param required_fields: Fields of interest.
+    :type required_fields: List[str]
+    :param ranking_method: Specify the ranking method, 'fuzzy' or 'LM' (Language Model)
+    :type ranking_method: str
+    :param limit: Number of matches to return
+    :type limit: int
+    :return: Dictionary with required_fields present in dataset_fields as keys and the corresponding dataset fields as values
+    :rtype: Dictionary
+
+    """
+
     ranking_function_map = {
         'fuzzy':get_fuzzy_matches,
         'LM': get_LM_matches,
@@ -119,8 +233,6 @@ def ranked_field_matching(dataset_fields, required_fields, ranking_method='fuzzy
         print('Method: sentence transformer.')
 
     ranked_header_maps = ranking_function_map.get(ranking_method, lambda: "Invalid matching method specified")(**ranking_function_arguments)
-
-    # print(ranked_header_maps)
         
     field_mappings = {}
 

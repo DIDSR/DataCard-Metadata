@@ -19,40 +19,51 @@ def main():
     # assert metadata_file_path is not None, 'Metadata file path not specified.'
 
     # Hardcoded argument values
-    metadata_reference_path = 'data/dm_metadata_dictionary.json'
+    metadata_reference_path = 'data/dm_metadata_dictionary2.json'
     completeness_check_level = 'Core Fields'
     metadata_file_path ='/projects01/didsr-aiml/common_data/VinDr-Mammo/raw-images/vindr-mammo/1.0.0/metadata.csv'
 
-    # Step 0: Create output directory to store visualizations
+    # Create output directory to store visualizations
     os.makedirs('output', exist_ok=True)
 
-    # Step 1: Load required metadata fields
-    # This step reads the required fields from a CSV file that contains a single column listing all expected metadata attributes (e.g., 'PatientID', 'Modality', 'StudyDate').
-    metadata_reference_dictionary = get_dictionary(metadata_reference_path,completeness_check_level,flatten=True)
-    required_fields = list(metadata_reference_dictionary.keys())
+    # Load required metadata fields from a json dictionary and retrieve the list of aliases for each field.
+    metadata_reference_dictionary = get_dictionary(metadata_reference_path,completeness_check_level)
+    field_aliases = get_field_item(metadata_reference_dictionary)
+    required_fields = list(field_aliases.keys())
 
-    # Step 2: Load the dataset
-    # This step loads the dataset (a multi-column CSV/XLS file) into a pandas DataFrame. Each column represents a metadata attribute (e.g., 'PatientID', 'Modality'), and each row represents a data point.
+    # Load the dataset metadata
+    # This step loads the dataset metadata (a multi-column CSV/XLS file) into a pandas DataFrame.
+    # Each column represents a metadata attribute (e.g., 'PatientID', 'Modality'), and each row represents a data point.
     metadata_df = load_metadata_file(metadata_file_path)
 
     if metadata_df is not None:
         print(f"Assessing completeness for metadata file '{os.path.basename(metadata_file_path)}'")
 
-    # Step 3: Perform dataset-level completeness check
-    # This checks if the dataset's headers (column names) match the required fields.
-    # - Missing Headers: Required fields that are not present in the dataset.
-    # - Unexpected Headers: Fields present in the dataset that are not part of the required fields.
+    """
+    Perform dataset-level completeness check
+    This checks if the dataset's headers (column names) match the required fields.
+    - Missing Headers: Required fields that are not present in the dataset.
+    - Unexpected Headers: Fields present in the dataset that are not part of the required fields.
 
-    header_matching_methods = {
+    The field_matching_methods dictionary consists of a set of matching methods that are executed in order.
+    The value for each method is a tuple in which the first item is a flag to enable/disable the method
+    and the second item contains any additional parameters needed for that method (or None).
+    `UA` refers to User-Assisted. Enabling this method will use either fuzzy matching or token matching using a language model
+    to return likely matches for header fields that could not be automatically matched.
+    For each such field, the user will receive a prompt to select a field from one of the top N most likely options (specified by 'limit').
+    The token matching option is disabled in this version of the code.
+    """
+
+    field_matching_methods = {
         'strict':(False,None),
-        'dictionary':(True,{'field_dictionary':metadata_reference_dictionary}),
+        'dictionary':(True,{'field_dictionary':field_aliases}),
         'soft': (False,None),
         'fuzzy': (False,{'threshold':80}),
         'UA':(False,{'ranking_method':'fuzzy','limit':4})  # 'fuzzy' or 'LM'
     }
 
     if metadata_df is not None and required_fields:
-        completeness_report = dataset_level_completeness_check(metadata_df, required_fields, header_matching_methods)
+        completeness_report = dataset_level_completeness_check(metadata_df, required_fields, field_matching_methods)
 
         # Extract missing and unexpected headers for clarity
         available_header_map = completeness_report["available_header_map"]
@@ -60,15 +71,13 @@ def main():
         unexpected_headers = completeness_report["unexpected_headers"]
         completeness_score = completeness_report["completeness_score"]
 
-        # Step 4: Show header mapping
+        # Show header mapping
         # If there are required fields missing from the dataset, list them.
         if available_header_map:
             print('Required Header\t\tMatched Dataset Header')
             print('---------------------------------------------')
             for k,v in available_header_map.items():
                 print('{:<20}\t{:<12}'.format(k,v))
-            # available_header_map_df = pd.DataFrame(available_header_map.items(), columns=["Required Header", "Dataset Header"])
-            # display(available_header_map_df)
         else:
             print(f"All required fields are missing for {completeness_check_level}.")
 
@@ -91,7 +100,7 @@ def main():
 
         # Step 7: Perform record-level completeness check
         # This checks individual columns and rows in the metadata file and reports completion information
-        record_level_results = record_level_completeness_check(metadata_df, required_fields, available_header_map,visualize=True,savefig=True)
+        record_level_results = record_level_completeness_check(metadata_df, required_fields, available_header_map,visualize=True,savefig=False)
     else:
         # Handle cases where either the dataset or required fields failed to load.
         print("Failed to load dataset or required fields.")

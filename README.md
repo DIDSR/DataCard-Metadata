@@ -1,12 +1,38 @@
 # Datacard - Metadata Completeness Assessment
 
 This repository contains code for the assessment of metadata Completeness for the DataCard project.
+
+
+[Full documentation](docs/_build/html/index.html)
+
+
 The current itertion of the code takes a metadata csv file and a json metadata reference dictionary as input.
 A list of matched, missing, and unexpected data header fields are returned as terminal output.
 Visulaizations for field and record completeness can also be produced and saved in the `/output` directory.
 The file inputs are currently hard-coded.
 
 **This code is work-in-progress.**
+
+## Installation
+
+The code uses python programming language. A python virtual environment can be created
+to install the packages required to run this code. A python venv named `dcard` can be
+created using
+
+```
+   python3 -m venv .dcard
+```
+
+The environment can be actiavted using
+```
+   source .dcard/bin/activate
+```
+After activation, the required packages can be installed inside the environment by running
+
+```
+   python3 -m pip install -r requirements.txt
+```
+
 
 ## Repository organization
 

@@ -1,0 +1,1550 @@
+{
+    "General Fields": {
+        "Core Fields": {
+            "Patient ID": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Patient Identifier",
+                    "Unique Patient ID",
+                    "DICOM Patient ID"
+                ],
+                "checkCoverage": false
+            },
+            "Patient Birth Date/Age": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Birth Date",
+                    "Date of Birth",
+                    "DOB",
+                    "Age",
+                    "Patient Age",
+                    "Patient's Age",
+                    "Age at dx"
+                ],
+                "checkCoverage": false
+            },
+            "Patient Sex": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Sex",
+                    "Gender"
+                ],
+                "checkCoverage": false
+            },
+            "History/Prior": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "History",
+                    "Prior",
+                    "Medical History",
+                    "Patient History"
+                ],
+                "checkCoverage": false
+            },
+            "Race": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Demographic Group"
+                ],
+                "checkCoverage": false
+            },
+            "Ethnicity": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Ethnic Background",
+                    "Cultural Group"
+                ],
+                "checkCoverage": false
+            },
+            "Study ID": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Study Accession Number",
+                    "Study Identifier"
+                ],
+                "checkCoverage": false
+            },
+            "Study Date": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "StudyDate",
+                    "Acquisition Date",
+                    "Exam Date",
+                    "Date/Time",
+                    "Acquisition Date/Time",
+                    "Date"
+                ],
+                "checkCoverage": false
+            },
+            "Study Time": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Acquisition Time",
+                    "StudyTime",
+                    "Exam Time",
+                    "Time"
+                ],
+                "checkCoverage": false
+            },
+            "Series Number": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Modality ": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Scan Type",
+                    "Image Modality",
+                    "Imaging Modality"
+                ],
+                "checkCoverage": false
+            },
+            "Image ID": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "DICOM Image UID",
+                    "ImageID",
+                    "Image Identifier"
+                ],
+                "checkCoverage": false
+            },
+            "Image Type": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "ImageType",
+                    "Image Category",
+                    "Modality Type"
+                ],
+                "checkCoverage": false
+            },
+            "Resolution/MPP": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Image Resolution",
+                    "Pixel Resolution",
+                    "DPI",
+                    "MPP"
+                ],
+                "checkCoverage": false
+            },
+            "Magnification": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "AppMag"
+                ],
+                "checkCoverage": false
+            },
+            "Scan Date": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Date"
+                ],
+                "checkCoverage": false
+            },
+            "Scanner Model": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Vendor": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Manufacturer"
+                ],
+                "checkCoverage": false
+            },
+            "File Format": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Format",
+                    "FileFormat",
+                    "File Type"
+                ],
+                "checkCoverage": false
+            },
+            "Bits Allocated ": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Bits Stored": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Bit Depth",
+                    "BitsStored",
+                    "Stored Bits"
+                ],
+                "checkCoverage": false
+            },
+            "High Bit": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Pixel Spacing": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "PixelSpacing",
+                    "Spacing Between Pixels",
+                    "Pixel Density",
+                    "Image Spacing",
+                    "Imager Pixel Spacing"
+                ],
+                "checkCoverage": false
+            },
+            "Color Space": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "ICC Profile"
+                ],
+                "checkCoverage": false
+            },
+            "Image Width": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "OriginalWidth"
+                ],
+                "checkCoverage": false
+            },
+            "Image Height": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "OriginalHeight"
+                ],
+                "checkCoverage": false
+            },
+            "Image Depth": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Image Channels": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Number of Channels"
+                ],
+                "checkCoverage": false
+            },
+            "Image Bit Depth": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "File Size": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Tile Width": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Tile Height": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Compression": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Compression Ratio": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Compression Method": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Specimen ID": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Specimen Type": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Fixative Type": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Staining Method": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Staining Protocol": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Annotation": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Annotation Date": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Annotator": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Annotation Format": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Exposure Time": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Illumination Source": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Objective Lens": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "DPI": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Color Correction": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            }
+        },
+        "Additional Fields": {
+            "Photometric Interpretation": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Photometry"
+                ],
+                "checkCoverage": false
+            },
+            "Bits Stored": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Bit Depth",
+                    "BitsStored",
+                    "Stored Bits"
+                ],
+                "checkCoverage": false
+            },
+            "Pixel Padding Value": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Pixel Padding Range Limit": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Window Center": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Window Width": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Rescale Intercept": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Rescale Slope": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Window Center & Width Explanation": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Window Center Explanation",
+                    "Window Center & Width Explanation"
+                ],
+                "checkCoverage": false
+            }
+        }
+    },
+    "File Type Specific Fields": {
+        "SVS": {
+            "Image Path": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Description": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Details"
+                ],
+                "checkCoverage": false
+            },
+            "Apparent Magnification": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Magnification",
+                    "AppMag"
+                ],
+                "checkCoverage": false
+            },
+            "StripeWidth": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "ScanScope ID": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Filename": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Date": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Time": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Time Zone": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "User": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Parmset": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "MPP": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Left": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Top": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "LineCameraSkew": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "LineAreaXOffset": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "LineAreaYOffset": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Focus Offset": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "DSR ID": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "ImageID": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Exposure Time": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Exposure Scale": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "DisplayColor": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "SessionMode": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "OriginalWidth": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "OriginalHeight": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "ICC Profile": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Image Type": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Image Width": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Image Height": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Image Depth": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Image Channels": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Image Bit Depth": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "File Size": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Compression Type": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Compression Quality": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Compression Ratio": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Organization": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Tile Width": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Tile Height": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            }
+        },
+        "DICOM": {
+            "Patients Name": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Patient ID": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Patient's Birth Date": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Patient's Sex": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Study Instance UID": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Series Instance UID": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Study ID": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Series Number": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Instance Number": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Study Date": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Study Time": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Accession Number": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Modality": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Manufacturer": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Manufacturer's Model Name": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Software Versions": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "SOP Instance UID": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "SOP Class UID": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Rows": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Columns": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Pixel Spacing": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Bits Allocated": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Bits Stored": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "High Bit": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            }
+        },
+        "NDPI": {
+            "File Path": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Description": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Details"
+                ],
+                "checkCoverage": false
+            },
+            "Magnification": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Optical Magnification"
+                ],
+                "checkCoverage": false
+            },
+            "MPP": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Image Width": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Image Height": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Tile Width": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Tile Height": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Bits per sample": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Image Bit Depth"
+                ],
+                "checkCoverage": false
+            },
+            "Compression": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Compression Type"
+                ],
+                "checkCoverage": false
+            },
+            "Compression Quality": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Image Depth": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Image Channels": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Number of channels"
+                ],
+                "checkCoverage": false
+            },
+            "Scanner Model": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Scanner Serial Number": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Scan Date": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Date"
+                ],
+                "checkCoverage": false
+            },
+            "Scan Time": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Time"
+                ],
+                "checkCoverage": false
+            },
+            "User": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Exposure Time": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Objective Lens": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Z Stack Positions": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "File Size": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Patient ID": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Accention Number": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Image ID": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Software Version": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "X Offset": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Y Offset": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Z Offset": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            }
+        },
+        "SCN": {
+            "File Path": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Description": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Details"
+                ],
+                "checkCoverage": false
+            },
+            "Magnification": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Optical Magnification"
+                ],
+                "checkCoverage": false
+            },
+            "MPP": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Image Width": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Image Height": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Tile Width": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Tile Height": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Bits per sample": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Image Bit Depth"
+                ],
+                "checkCoverage": false
+            },
+            "Compression": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Compression Type"
+                ],
+                "checkCoverage": false
+            },
+            "Compression Quality": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Image Depth": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Image Channels": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Number of channels"
+                ],
+                "checkCoverage": false
+            },
+            "Scanner Model": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Vendor": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Scanner Manufacturer",
+                    "Manufacturer"
+                ],
+                "checkCoverage": false
+            },
+            "Scanner Serial Number": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Scan Date": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Date"
+                ],
+                "checkCoverage": false
+            },
+            "Scan Time": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    "Time"
+                ],
+                "checkCoverage": false
+            },
+            "User": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Exposure Time": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Objective Lens": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Z Stack Positions": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "File Size": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Patient ID": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Accession Number": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Image ID": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Software Version": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "X Offset": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Y Offset": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Z Offset": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Session Mode": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Focus Offset": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Line Camera Skew": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Line Area X Offset": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Line Area y Offset": {
+                "description": " ",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            }
+        }
+    }
+}
