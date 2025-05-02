@@ -66,47 +66,47 @@ Metadata dictionaries follow the general structure shown below:
 
 ## Example Digital Mammography dictionary exerpt:
 
-$\color{black}{\LARGE{\textbf{- General Fields:}}} \space \color{gray}{\text{\\# A top level grouping of field classes, referred to as a field Category.}}$
+$\color{black}{\large{\textbf{- General Fields:}}} \space \color{gray}{\text{\\# A top level grouping of field classes, referred to as a field Category.}}$
 
 
-$\color{black}\hspace{10pt}{\LARGE{\textbf{- Core Fields:}}}\space \color{gray}{\text{\\# A group of fields, referred to as a field Class. Completeness is calculated at the Class level.}}$
+$\color{black}\hspace{10pt}{\large{\textbf{- Core Fields:}}}\space \color{gray}{\text{\\# A group of fields, referred to as a field Class. Completeness is calculated at the Class level.}}$
 
 
-$\color{black}\hspace{40pt}{\LARGE{\textbf{- Patient ID:}}} \space \color{gray}{\text{\\# A potential header in a metadata file, referred to as a Field.} \space \color{black} \\{ }$
+$\color{black}\hspace{40pt}{\large{\textbf{- Patient ID:}}} \space \color{gray}{\text{\\# A potential header in a metadata file, referred to as a Field.} \space \color{black} \\{ }$
 
-$\color{black}\hspace{50pt}{\large{\textbf{- description:}} \space \color{darkblue}\text{Unique alphanumeric string to identify different records from the same patient within a dataset}}$
+$\color{black}\hspace{50pt}{\textbf{- description:} \space \color{darkblue}\text{Unique alphanumeric string to identify different records from the same patient within a dataset}}$
 
 $\color{gray}\hspace{60pt}{\text{\\# Text description of the expected information for the field}}$
 
-$\color{black}\hspace{50pt}{\large{\textbf{- dtype:}} \space \color{darkblue}\text{string}}$
+$\color{black}\hspace{50pt}{\textbf{- dtype:} \space \color{darkblue}\text{string}}$
 
 $\color{gray}\hspace{60pt}{\text{\\# The expected data type for the field}}$
 
-$\color{black}\hspace{50pt}{\large{\textbf{- aliases:}} \space \color{darkblue}\text{[Patient Identifier, Unique Patient ID, DICOM Patient ID]}}$
+$\color{black}\hspace{50pt}{\textbf{- aliases:} \space \color{darkblue}\text{[Patient Identifier, Unique Patient ID, DICOM Patient ID]}}$
 
 $\color{gray}\hspace{60pt}{\text{\\# A list of possible terms that might also be used to refer to the field}}$
 
-$\color{black}\hspace{50pt}{\large{\textbf{- checkCoverage:}} \space \color{darkblue}\text{False}}$
+$\color{black}\hspace{50pt}{\textbf{- checkCoverage:} \space \color{darkblue}\text{False}}$
 
 $\color{gray}\hspace{60pt}{\text{\\# A flag (boolean) to indicate if coverage analysis needs to be done for the data corresponding to the field.}}$
 
 $\color{black}\hspace{50pt}{\\}}$
 
 
-$\color{black}\hspace{40pt}{\textbf{- Patient Birth Date/Age:}\space \\{ }$
+$\color{black}\hspace{40pt}{\large{\textbf{- Patient Birth Date/Age:}}\space \\{ }$
 
-$\color{black}\hspace{50pt}{\large{\textbf{- description:}} \space \color{darkblue}\text{Birth date or age of patient}}$
+$\color{black}\hspace{50pt}{\textbf{- description:} \space \color{darkblue}\text{Birth date or age of patient}}$
 
-$\color{black}\hspace{50pt}{\large{\textbf{- dtype:}} \space \color{darkblue}\text{string}}$
+$\color{black}\hspace{50pt}{\textbf{- dtype:} \space \color{darkblue}\text{string}}$
 
-$\color{black}\hspace{50pt}{\large{\textbf{- aliases:}} \space \color{darkblue}\text{['Birth Date', 'Date of Birth', 'DOB', 'Age', 'Patient Age', "Patient's Age", 'Age at dx']}}$
+$\color{black}\hspace{50pt}{\textbf{- aliases:} \space \color{darkblue}\text{['Birth Date', 'Date of Birth', 'DOB', 'Age', 'Patient Age', "Patient's Age", 'Age at dx']}}$
 
-$\color{black}\hspace{50pt}{\large{\textbf{- checkCoverage:}} \space \color{darkblue}\text{True}}$
+$\color{black}\hspace{50pt}{\textbf{- checkCoverage:} \space \color{darkblue}\text{True}}$
 
 $\color{black}\hspace{50pt}{\\}}$
 
 
-$\color{black}\hspace{40pt}{\textbf{- Image Resolution:}\space \\{ }$
+$\color{black}\hspace{40pt}{\large{\textbf{- Image Resolution:}}\space \\{ }$
 
 $\color{black}\hspace{50pt}{\textbf{- description:} \space \color{darkblue}\text{The resolution of the image, typically in pixels-per-inch}}$
 
@@ -121,9 +121,9 @@ $\color{black}\hspace{50pt}{\\}}$
 $\color{black}\hspace{50pt}{\textbf{...}}$
 
 
-$\color{black}\hspace{10pt}{\textbf{- Additional Fields:}}$
+$\color{black}\hspace{10pt}{\large{\textbf{- Additional Fields:}}}$
 
-$\color{black}\hspace{40pt}{\textbf{- Photometric Interpretation:}\space \\{ }$
+$\color{black}\hspace{40pt}{\large{\textbf{- Photometric Interpretation:}}\space \\{ }$
 
 $\color{black}\hspace{50pt}{\textbf{- description:} \space \color{darkblue}\text{Intended interpretation of the image pixel data (Monochrome 1 or Monochrome 2)}}$
 
@@ -139,11 +139,11 @@ $\color{black}\hspace{50pt}{\textbf{...}}$
 
 
 
-$\color{black}{\textbf{- Modality Specific Fields:}}$
+$\color{black}{\large{\textbf{- Modality Specific Fields:}}}$
 
-$\color{black}\hspace{10pt}{\textbf{- DBT:}}$
+$\color{black}\hspace{10pt}{\large{\textbf{- DBT:}}}$
 
-$\color{black}\hspace{40pt}{\textbf{- Projection Views:}\space \\{ }$
+$\color{black}\hspace{40pt}{\large{\textbf{- Projection Views:}}\space \\{ }$
 
 $\color{black}\hspace{50pt}{\textbf{- description:} \space \color{darkblue}\text{Number of projection views used for the DBT acquisition}}$
 
@@ -160,11 +160,11 @@ $\color{black}\hspace{50pt}{\textbf{...}}$
 $\color{black}\hspace{20pt}{\textbf{...}}$
 
 
-$\color{black}{\textbf{- Task Specific Fields:}}$
+$\color{black}{\large{\textbf{- Task Specific Fields:}}}$
 
-$\color{black}\hspace{10pt}{\textbf{- Density Estimation:}}$
+$\color{black}\hspace{10pt}{\large{\textbf{- Density Estimation:}}}$
 
-$\color{black}\hspace{40pt}{\textbf{- Breast Density:}\space \\{ }$
+$\color{black}\hspace{40pt}{\large{\textbf{- Breast Density:}}\space \\{ }$
 
 $\color{black}\hspace{50pt}{\textbf{- description:} \space \color{darkblue}\text{Breast density expressed as a numeric value or ACR category}}$
 
