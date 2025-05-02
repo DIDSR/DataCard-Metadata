@@ -2,16 +2,22 @@
 
 This repository contains code for the assessment of metadata Completeness for the DataCard project.
 
+ [!NOTE]
+**This code is work-in-progress.**
 
-[Full documentation](docs/_build/html/index.html)
+## Overview
 
+This tool is intended to take a metadata table for a medical imaging dataset and generate a report indicating the
+level of Completeness of the metadata. To do so, a modality specific metadata reference dictionary containing required
+field information is used along with the metadata file. An outline of this pipeline is given below.
+
+![Completeness Assessment Pipeline](./images/Completeness_Pipeline.png)
 
 The current itertion of the code takes a metadata csv file and a json metadata reference dictionary as input.
 A list of matched, missing, and unexpected data header fields are returned as terminal output.
 Visulaizations for field and record completeness can also be produced and saved in the `/output` directory.
 The file inputs are currently hard-coded.
 
-**This code is work-in-progress.**
 
 ## Installation
 
@@ -57,46 +63,122 @@ The module accepts 3 arguments:
 `--cc_level`: The level at which completeness should be assessed. This argument is used to specify a subgroup within the chosen metadata dictionary.
 
 Metadata dictionaries follow the general structure shown below:
-```markdown
-General Fields
-│
-├─ Core Fields
-│   │
-│   ├─ *Subcategory 1* (Eg. Patient Information)
-│   │   │
-│   │   ├─ {Field 1}
-│   │   ├─ {Field 2}
-│   │   └─ ...
-│   ├─ *Subcategory 2* (Eg. Study Information)
-│   │   │
-│   │   ├─ {Field 1}
-│   │   ├─ {Field 2}
-│   │   └─ ...
-│   └─ ...
-├─ *Additional Fields*
-│   │
-│   ├─ {Field 1}
-│   ├─ {Field 2}
-│   └─ ...
-│
-Modality Specific Fields
-│
-├─ *Data Type / Instrument Type* (Eg. DICOM, DBT)
-│   │
-│   ├─ {Field 1}
-│   ├─ {Field 2}
-│   └─ ...
-└─ ...
-│
-Task Specific Fields
-│
-├─ *Task Type* (Eg. Cancer Detection, Density Estimation)
-│   │
-│   ├─ {Field 1}
-│   ├─ {Field 2}
-│   └─ ...
-└─ ...
-```
+
+$\color{black}{\textbf{- General Fields:}} \space \color{gray}{\text{\# A top level grouping of field classes, referred to as a field Category.}}$
+
+
+$\color{black}\hspace{20pt}{\textbf{- Core Fields:}}\space \color{gray}{\text{\# A group of fields, referred to as a field Class. Completeness is calculated at the Class level.}}$
+
+
+$\color{black}\hspace{40pt}{\textbf{- Patient ID:}} \space \color{gray}{\text{\# A potential header in a metadata file, referred to as a Field.} \space \color{black}\{ }$
+
+$\color{black}\hspace{50pt}{\textbf{- description:} \space \color{darkblue}\text{Unique alphanumeric string to identify different records from the same patient within a dataset}}$
+
+$\color{gray}\hspace{60pt}{\text{\# Text description of the expected information for the field}}$
+
+$\color{black}\hspace{50pt}{\textbf{- dtype:} \space \color{darkblue}\text{string}}$
+
+$\color{gray}\hspace{60pt}{\text{\# The expected data type for the field}}$
+
+$\color{black}\hspace{50pt}{\textbf{- aliases:} \space \color{darkblue}\text{[Patient Identifier, Unique Patient ID, DICOM Patient ID]}}$
+
+$\color{gray}\hspace{60pt}{\text{\# A list of possible terms that might also be used to refer to the field}}$
+
+$\color{black}\hspace{50pt}{\textbf{- checkCoverage:} \space \color{darkblue}\text{False}}$
+
+$\color{gray}\hspace{60pt}{\text{\# A flag (boolean) to indicate if coverage analysis needs to be done for the data corresponding to the field.}}$
+
+$\color{black}\hspace{50pt}{\}}$
+
+
+$\color{black}\hspace{40pt}{\textbf{- Patient Birth Date/Age:}\space \{ }$
+
+$\color{black}\hspace{50pt}{\textbf{- description:} \space \color{darkblue}\text{Birth date or age of patient}}$
+
+$\color{black}\hspace{50pt}{\textbf{- dtype:} \space \color{darkblue}\text{string}}$
+
+$\color{black}\hspace{50pt}{\textbf{- aliases:} \space \color{darkblue}\text{['Birth Date', 'Date of Birth', 'DOB', 'Age', 'Patient Age', "Patient's Age", 'Age at dx']}}$
+
+$\color{black}\hspace{50pt}{\textbf{- checkCoverage:} \space \color{darkblue}\text{True}}$
+
+$\color{black}\hspace{50pt}{\}}$
+
+
+$\color{black}\hspace{40pt}{\textbf{- Image Resolution:}\space \{ }$
+
+$\color{black}\hspace{50pt}{\textbf{- description:} \space \color{darkblue}\text{The resolution of the image, typically in pixels-per-inch}}$
+
+$\color{black}\hspace{50pt}{\textbf{- dtype:} \space \color{darkblue}\text{int}}$
+
+$\color{black}\hspace{50pt}{\textbf{- aliases:} \space \color{darkblue}\text{['Resolution', 'PPI', 'Pixels per inch']}}$
+
+$\color{black}\hspace{50pt}{\textbf{- checkCoverage:} \space \color{darkblue}\text{True}}$
+
+$\color{black}\hspace{50pt}{\}}$
+
+$\color{black}\hspace{50pt}{\textbf{\dots}}$
+
+
+$\color{black}\hspace{20pt}{\textbf{- Additional Fields:}}$
+
+$\color{black}\hspace{40pt}{\textbf{- Photometric Interpretation:}\space \{ }$
+
+$\color{black}\hspace{50pt}{\textbf{- description:} \space \color{darkblue}\text{Intended interpretation of the image pixel data (Monochrome 1 or Monochrome 2)}}$
+
+$\color{black}\hspace{50pt}{\textbf{- dtype:} \space \color{darkblue}\text{string}}$
+
+$\color{black}\hspace{50pt}{\textbf{- aliases:} \space \color{darkblue}\text{[`']}}$
+
+$\color{black}\hspace{50pt}{\textbf{- checkCoverage:} \space \color{darkblue}\text{False}}$
+
+$\color{black}\hspace{50pt}{\}}$
+
+$\color{black}\hspace{50pt}{\textbf{\dots}}$
+
+
+
+$\color{black}{\textbf{- Modality Specific Fields:}}$
+
+$\color{black}\hspace{20pt}{\textbf{- DBT:}}$
+
+$\color{black}\hspace{40pt}{\textbf{- Projection Views:}\space \{ }$
+
+$\color{black}\hspace{50pt}{\textbf{- description:} \space \color{darkblue}\text{Number of projection views used for the DBT acquisition}}$
+
+$\color{black}\hspace{50pt}{\textbf{- dtype:} \space \color{darkblue}\text{int}}$
+
+$\color{black}\hspace{50pt}{\textbf{- aliases:} \space \color{darkblue}\text{['Projections', 'DBT Projections', 'DICOM Patient ID']}}$
+
+$\color{black}\hspace{50pt}{\textbf{- checkCoverage:} \space \color{darkblue}\text{True}}$
+
+$\color{black}\hspace{50pt}{\}}$
+
+$\color{black}\hspace{50pt}{\textbf{\dots}}$
+
+$\color{black}\hspace{20pt}{\textbf{\dots}}$
+
+
+$\color{black}{\textbf{- Task Specific Fields:}}$
+
+$\color{black}\hspace{20pt}{\textbf{- Density Estimation:}}$
+
+$\color{black}\hspace{40pt}{\textbf{- Breast Density:}\space \{ }$
+
+$\color{black}\hspace{50pt}{\textbf{- description:} \space \color{darkblue}\text{Breast density expressed as a numeric value or ACR category}}$
+
+$\color{black}\hspace{50pt}{\textbf{- dtype:} \space \color{darkblue}\text{string}}$
+
+$\color{black}\hspace{50pt}{\textbf{- aliases:} \space \color{darkblue}\text{['Density', 'Breast Composition', 'ACR', 'ACR Value']}}$
+
+$\color{black}\hspace{50pt}{\textbf{- checkCoverage:} \space \color{darkblue}\text{True}}$
+
+$\color{black}\hspace{50pt}{\}}$
+
+$\color{black}\hspace{50pt}{\textbf{\dots}}$
+
+$\color{black}\hspace{20pt}{\textbf{\dots}}$
+
+
 Chosing a subgroup using the `--cc_level` parameter will evaluate completeness with respect to all the fields nested within that subgroup. The default value for this argument is `None` which uses all the fields inside the dictionary.
 
 Besides dictionary-based matching, there are some other additional experimental matching methods implemented in this freamwork. The methods can be used by modifying the flags in the `header_matching_methods` dictionary in `dcard_completeness_main.py`.
@@ -124,7 +206,7 @@ header_matching_methods = {
 
 The output consists of text in the terminal window and a set of completeness plots which are saved in the output directory.
 
-Given below is the output for the VinDr-Mammo 'metadata.csv' file using the dm_metadata_dictionary.json dictionary and performing assessment for the "Core Fields".
+Given below is the output for the VinDr-Mammo `metadata.csv` file using the `dm_metadata_dictionary2.json` dictionary and performing assessment for the **Core Fields**.
 
 ```
 Assessing completeness for metadata file 'metadata.csv'
