@@ -66,10 +66,10 @@ Metadata dictionaries follow the general structure shown below:
 
 ## Example Digital Mammography dictionary exerpt:
 
-$\color{black}{\textbf{- General Fields:}} \space \color{gray}{\bold{\\# A top level grouping of field classes, referred to as a field Category.}}$
+$\color{black}{\mathbf{- General Fields:}} \space \color{gray}{\text{\\# A top level grouping of field classes, referred to as a field Category.}}$
 
 
-$\color{black}\hspace{10pt}{\textbf{- Core Fields:}}\space \color{gray}{\bold{\\# A group of fields, referred to as a field Class. Completeness is calculated at the Class level.}}$
+$\color{black}\hspace{10pt}{\mathbf{- Core Fields:}}\space \color{gray}{\text{\\# A group of fields, referred to as a field Class. Completeness is calculated at the Class level.}}$
 
 
 $\color{black}\hspace{40pt}{\textbf{- Patient ID:}} \space \color{gray}{\text{\\# A potential header in a metadata file, referred to as a Field.} \space \color{black} \\{ }$
