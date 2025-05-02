@@ -1,6 +1,7 @@
 import os
+import numpy as np
 from rapidfuzz import fuzz, process
-# from sentence_transformers import SentenceTransformer, util
+from sentence_transformers import SentenceTransformer, util
 import re
 import warnings
 
@@ -189,7 +190,7 @@ def get_LM_matches(dataset_fields, required_fields, limit = 5):
     except Exception as e:
         print(f'Could not load LM. Using fuzzy matching. Error {e}')
 
-        matches = get_fuzzy_matches(dataset_fields, required_fields, limit = limit, score = fuzz.ratio )
+        matches = get_fuzzy_matches(dataset_fields, required_fields, limit = limit)
 
         return matches
 

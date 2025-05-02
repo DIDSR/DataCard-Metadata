@@ -19,7 +19,7 @@ def main():
     # assert metadata_file_path is not None, 'Metadata file path not specified.'
 
     # Hardcoded argument values
-    metadata_reference_path = 'data/dm_metadata_dictionary2.json'
+    metadata_reference_path = 'data/dm_metadata_dictionary.json'
     completeness_check_level = 'Core Fields'
     metadata_file_path ='/projects01/didsr-aiml/common_data/VinDr-Mammo/raw-images/vindr-mammo/1.0.0/metadata.csv'
 
@@ -59,7 +59,7 @@ def main():
         'dictionary':(True,{'field_dictionary':field_aliases}),
         'soft': (False,None),
         'fuzzy': (False,{'threshold':80}),
-        'UA':(False,{'ranking_method':'fuzzy','limit':4})  # 'fuzzy' or 'LM'
+        'UA':(True,{'ranking_method':'LM','limit':4})  # 'fuzzy' or 'LM'
     }
 
     if metadata_df is not None and required_fields:
