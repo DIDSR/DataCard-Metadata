@@ -70,28 +70,28 @@ $\color{black}{\textbf{- General Fields:}} \space \color{gray}{\text{\\# A top l
 $\color{black}\hspace{20pt}{\textbf{- Core Fields:}}\space \color{gray}{\text{\\# A group of fields, referred to as a field Class. Completeness is calculated at the Class level.}}$
 
 
-$\color{black}\hspace{40pt}{\textbf{- Patient ID:}} \space \color{gray}{\text{A potential header in a metadata file, referred to as a Field.} \space \color{black}\{ }$
+$\color{black}\hspace{40pt}{\textbf{- Patient ID:}} \space \color{gray}{\text{\\# A potential header in a metadata file, referred to as a Field.} \space \color{black} \\{ }$
 
 $\color{black}\hspace{50pt}{\textbf{- description:} \space \color{darkblue}\text{Unique alphanumeric string to identify different records from the same patient within a dataset}}$
 
-$\color{gray}\hspace{60pt}{\text{\# Text description of the expected information for the field}}$
+$\color{gray}\hspace{60pt}{\text{\\# Text description of the expected information for the field}}$
 
 $\color{black}\hspace{50pt}{\textbf{- dtype:} \space \color{darkblue}\text{string}}$
 
-$\color{gray}\hspace{60pt}{\text{\# The expected data type for the field}}$
+$\color{gray}\hspace{60pt}{\text{\\# The expected data type for the field}}$
 
 $\color{black}\hspace{50pt}{\textbf{- aliases:} \space \color{darkblue}\text{[Patient Identifier, Unique Patient ID, DICOM Patient ID]}}$
 
-$\color{gray}\hspace{60pt}{\text{\# A list of possible terms that might also be used to refer to the field}}$
+$\color{gray}\hspace{60pt}{\text{\\# A list of possible terms that might also be used to refer to the field}}$
 
 $\color{black}\hspace{50pt}{\textbf{- checkCoverage:} \space \color{darkblue}\text{False}}$
 
-$\color{gray}\hspace{60pt}{\text{\# A flag (boolean) to indicate if coverage analysis needs to be done for the data corresponding to the field.}}$
+$\color{gray}\hspace{60pt}{\text{\\# A flag (boolean) to indicate if coverage analysis needs to be done for the data corresponding to the field.}}$
 
-$\color{black}\hspace{50pt}{\}}$
+$\color{black}\hspace{50pt}{\\}}$
 
 
-$\color{black}\hspace{40pt}{\textbf{- Patient Birth Date/Age:}\space \{ }$
+$\color{black}\hspace{40pt}{\textbf{- Patient Birth Date/Age:}\space \\{ }$
 
 $\color{black}\hspace{50pt}{\textbf{- description:} \space \color{darkblue}\text{Birth date or age of patient}}$
 
@@ -101,10 +101,10 @@ $\color{black}\hspace{50pt}{\textbf{- aliases:} \space \color{darkblue}\text{['B
 
 $\color{black}\hspace{50pt}{\textbf{- checkCoverage:} \space \color{darkblue}\text{True}}$
 
-$\color{black}\hspace{50pt}{\}}$
+$\color{black}\hspace{50pt}{\\}}$
 
 
-$\color{black}\hspace{40pt}{\textbf{- Image Resolution:}\space \{ }$
+$\color{black}\hspace{40pt}{\textbf{- Image Resolution:}\space \\{ }$
 
 $\color{black}\hspace{50pt}{\textbf{- description:} \space \color{darkblue}\text{The resolution of the image, typically in pixels-per-inch}}$
 
@@ -114,14 +114,14 @@ $\color{black}\hspace{50pt}{\textbf{- aliases:} \space \color{darkblue}\text{['R
 
 $\color{black}\hspace{50pt}{\textbf{- checkCoverage:} \space \color{darkblue}\text{True}}$
 
-$\color{black}\hspace{50pt}{\}}$
+$\color{black}\hspace{50pt}{\\}}$
 
 $\color{black}\hspace{50pt}{\textbf{...}}$
 
 
 $\color{black}\hspace{20pt}{\textbf{- Additional Fields:}}$
 
-$\color{black}\hspace{40pt}{\textbf{- Photometric Interpretation:}\space \{ }$
+$\color{black}\hspace{40pt}{\textbf{- Photometric Interpretation:}\space \\{ }$
 
 $\color{black}\hspace{50pt}{\textbf{- description:} \space \color{darkblue}\text{Intended interpretation of the image pixel data (Monochrome 1 or Monochrome 2)}}$
 
@@ -131,7 +131,7 @@ $\color{black}\hspace{50pt}{\textbf{- aliases:} \space \color{darkblue}\text{[`'
 
 $\color{black}\hspace{50pt}{\textbf{- checkCoverage:} \space \color{darkblue}\text{False}}$
 
-$\color{black}\hspace{50pt}{\}}$
+$\color{black}\hspace{50pt}{\\}}$
 
 $\color{black}\hspace{50pt}{\textbf{...}}$
 
@@ -141,7 +141,7 @@ $\color{black}{\textbf{- Modality Specific Fields:}}$
 
 $\color{black}\hspace{20pt}{\textbf{- DBT:}}$
 
-$\color{black}\hspace{40pt}{\textbf{- Projection Views:}\space \{ }$
+$\color{black}\hspace{40pt}{\textbf{- Projection Views:}\space \\{ }$
 
 $\color{black}\hspace{50pt}{\textbf{- description:} \space \color{darkblue}\text{Number of projection views used for the DBT acquisition}}$
 
@@ -151,7 +151,7 @@ $\color{black}\hspace{50pt}{\textbf{- aliases:} \space \color{darkblue}\text{['P
 
 $\color{black}\hspace{50pt}{\textbf{- checkCoverage:} \space \color{darkblue}\text{True}}$
 
-$\color{black}\hspace{50pt}{\}}$
+$\color{black}\hspace{50pt}{\\}}$
 
 $\color{black}\hspace{50pt}{\textbf{...}}$
 
@@ -162,7 +162,7 @@ $\color{black}{\textbf{- Task Specific Fields:}}$
 
 $\color{black}\hspace{20pt}{\textbf{- Density Estimation:}}$
 
-$\color{black}\hspace{40pt}{\textbf{- Breast Density:}\space \{ }$
+$\color{black}\hspace{40pt}{\textbf{- Breast Density:}\space \\{ }$
 
 $\color{black}\hspace{50pt}{\textbf{- description:} \space \color{darkblue}\text{Breast density expressed as a numeric value or ACR category}}$
 
@@ -172,7 +172,7 @@ $\color{black}\hspace{50pt}{\textbf{- aliases:} \space \color{darkblue}\text{['D
 
 $\color{black}\hspace{50pt}{\textbf{- checkCoverage:} \space \color{darkblue}\text{True}}$
 
-$\color{black}\hspace{50pt}{\}}$
+$\color{black}\hspace{50pt}{\\}}$
 
 $\color{black}\hspace{50pt}{\textbf{...}}$
 
