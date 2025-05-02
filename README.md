@@ -16,7 +16,6 @@ field information is used along with the metadata file. An outline of this pipel
 The current iteration of the code takes a metadata csv file and a json metadata reference dictionary as input.
 A list of matched, missing, and unexpected data header fields are returned as terminal output.
 Visualizations for field and record completeness can also be produced and saved in the `/output` directory.
-The file inputs are currently hard-coded.
 
 
 ## Installation
