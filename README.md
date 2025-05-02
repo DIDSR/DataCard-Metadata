@@ -74,7 +74,7 @@ A typical metadata file might be organized as follows:
 | ----------- | ------ |------- | ------- | -------- | ------ | 
 | ABC123  | 29  | 2015-06  | PQ30001  | Hologic  | 500  |
 | ABC124  | 52  | 2018-01  | ZD23005  | Siemens  | 700  | 
-| ABC124  | 41  | 2018-01  | ZD23005  | Siemens  | 700  | 
+| ABC124  | 52  | 2018-01  | ZD23006  | Siemens  | 700  | 
 
 
 #### Metadata dictionary
