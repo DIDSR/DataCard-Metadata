@@ -64,10 +64,12 @@ The module accepts 3 arguments:
 
 Metadata dictionaries follow the general structure shown below:
 
-$\color{black}{\textbf{- General Fields:}} \space \color{gray}{\text{\\# A top level grouping of field classes, referred to as a field Category.}}$
+## Example Digital Mammography dictionary exerpt:
+
+$\color{black}{\textbf{- General Fields:}} \space \color{gray}{\bold{\\# A top level grouping of field classes, referred to as a field Category.}}$
 
 
-$\color{black}\hspace{10pt}{\textbf{- Core Fields:}}\space \color{gray}{\text{\\# A group of fields, referred to as a field Class. Completeness is calculated at the Class level.}}$
+$\color{black}\hspace{10pt}{\textbf{- Core Fields:}}\space \color{gray}{\bold{\\# A group of fields, referred to as a field Class. Completeness is calculated at the Class level.}}$
 
 
 $\color{black}\hspace{40pt}{\textbf{- Patient ID:}} \space \color{gray}{\text{\\# A potential header in a metadata file, referred to as a Field.} \space \color{black} \\{ }$
@@ -178,6 +180,8 @@ $\color{black}\hspace{50pt}{\textbf{...}}$
 
 $\color{black}\hspace{20pt}{\textbf{...}}$
 
+
+-----
 
 Chosing a subgroup using the `--cc_level` parameter will evaluate completeness with respect to all the fields nested within that subgroup. The default value for this argument is `None` which uses all the fields inside the dictionary.
 
