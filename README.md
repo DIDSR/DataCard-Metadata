@@ -277,6 +277,14 @@ Number of complete records: 0
 0                         20              17740
 1                         21               2260
 ```
+#### Figure outputs
+
+The following figures visualizing the completeness information are also produced:
+
+1. **Required Field Completeness Summary**: A stacked barchart with bars corresponding to every required field specified by the completeness check level for the assessment. For each available field in the barchart, the percentage of data records that contain a value for the field in the metadata file is shown in blue and the remainder is shown in red. Unavailable required fields are represented by hatched bars. The output shown here is for 'Core Fields' assessment on the VinDr-Mammo metadata file.
+
 ![Required_Field_Completeness_Summary_VinDrMammo](./images/Required_Field_Completeness_Summary_VinDrMammo.png)
+
+2. **Completeness of Fields present in Metadata**: A stacked barchart with bars corresponding to all the fields present in the provided metadata file, regardless of their requirement for completeness assessment. For each field in the barchart, the percentage of data records that contain a value for the field in the metadata file is shown in green and the remainder is shown in red. The output shown here is for 'Core Fields' assessment on the VinDr-Mammo metadata file.
 
 ![Available_Field_Completeness_VinDrMammo](./images/Available_Field_Completeness_VinDrMammo.png)

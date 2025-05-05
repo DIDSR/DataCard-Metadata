@@ -2,7 +2,7 @@
     "General Fields": {
         "Core Fields": {
             "Patient ID": {
-                "description": " ",
+                "description": "Unique identifier for the patient",
                 "dtype": "string",
                 "aliases": [
                     "Patient Identifier",
@@ -12,7 +12,7 @@
                 "checkCoverage": false
             },
             "Patient Birth Date/Age": {
-                "description": " ",
+                "description": "Age of the patient",
                 "dtype": "string",
                 "aliases": [
                     "Birth Date",
@@ -22,20 +22,20 @@
                     "Patient Age",
                     "Patient's Age"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Patient Sex": {
-                "description": " ",
+                "description": "Sex of the patient",
                 "dtype": "string",
                 "aliases": [
                     "Patient's Sex",
                     "Sex",
                     "Gender"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "History/Prior": {
-                "description": " ",
+                "description": "Time since last cancer diagnosis",
                 "dtype": "string",
                 "aliases": [
                     "History",
@@ -46,24 +46,24 @@
                 "checkCoverage": false
             },
             "Race": {
-                "description": " ",
+                "description": "Patient race",
                 "dtype": "string",
                 "aliases": [
                     "Demographic Group"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Ethnicity": {
-                "description": " ",
+                "description": "Patient ethnicity",
                 "dtype": "string",
                 "aliases": [
                     "Ethnic Background",
                     "Cultural Group"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "History/Family": {
-                "description": " ",
+                "description": "First degree",
                 "dtype": "string",
                 "aliases": [
                     "First Degree Relatives",
@@ -72,7 +72,7 @@
                 "checkCoverage": false
             },
             "Marital status": {
-                "description": " ",
+                "description": "Patient marital status",
                 "dtype": "string",
                 "aliases": [
                     "Civil Status",
@@ -81,17 +81,17 @@
                 "checkCoverage": false
             },
             "ZIP Code": {
-                "description": " ",
+                "description": "Geographic location",
                 "dtype": "string",
                 "aliases": [
                     "Postal Code",
                     "ZIP",
                     "Area Code"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Study ID": {
-                "description": " ",
+                "description": "Unique identifier for the study",
                 "dtype": "string",
                 "aliases": [
                     "Study Accession Number",
@@ -100,7 +100,7 @@
                 "checkCoverage": false
             },
             "Study Date": {
-                "description": " ",
+                "description": "Date of image acquisition",
                 "dtype": "string",
                 "aliases": [
                     "StudyDate",
@@ -109,10 +109,10 @@
                     "Date/Time",
                     "Acquisition Date/Time"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Study Time": {
-                "description": " ",
+                "description": "Time of image acquisition",
                 "dtype": "string",
                 "aliases": [
                     "Acquisition Time",
@@ -122,17 +122,17 @@
                 "checkCoverage": false
             },
             "Modality": {
-                "description": " ",
+                "description": "Mammography or Digital breast tomosynthesis",
                 "dtype": "string",
                 "aliases": [
                     "Scan Type",
                     "Image Modality",
                     "Imaging Modality"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Breast Orientation": {
-                "description": " ",
+                "description": "Mammographic view used for acquisition",
                 "dtype": "string",
                 "aliases": [
                     "View Position",
@@ -143,29 +143,29 @@
                     "View",
                     "View Type"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Laterality": {
-                "description": " ",
+                "description": "Left of right breast",
                 "dtype": "string",
                 "aliases": [
                     "Left or Right Breast",
                     "Image Laterality"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Image Type": {
-                "description": " ",
+                "description": "Screening or diagnostic",
                 "dtype": "string",
                 "aliases": [
                     "ImageType",
                     "Image Category",
                     "Modality Type"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Image ID": {
-                "description": " ",
+                "description": "Unique image ID",
                 "dtype": "string",
                 "aliases": [
                     "DICOM Image UID",
@@ -177,7 +177,7 @@
                 "checkCoverage": false
             },
             "Image Dimension": {
-                "description": " ",
+                "description": "Dimensions of the image in pixels",
                 "dtype": "string",
                 "aliases": [
                     "Image Size",
@@ -188,20 +188,20 @@
                     "Height",
                     "Width"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Resolution": {
-                "description": " ",
+                "description": "Spatial resolution of the image",
                 "dtype": "string",
                 "aliases": [
                     "Image Resolution",
                     "Pixel Resolution",
                     "DPI"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "File Format": {
-                "description": " ",
+                "description": "Format of saved image data file.",
                 "dtype": "string",
                 "aliases": [
                     "Format",
@@ -211,27 +211,27 @@
                 "checkCoverage": false
             },
             "Compression Type": {
-                "description": " ",
+                "description": "Type of compression used on the image",
                 "dtype": "string",
                 "aliases": [
                     "Compression Method",
                     "Image Compression",
                     "CompressionType"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Bits Stored": {
-                "description": " ",
+                "description": "Number of bits stored per pixel",
                 "dtype": "string",
                 "aliases": [
                     "Bit Depth",
                     "BitsStored",
                     "Stored Bits"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Pixel Spacing": {
-                "description": " ",
+                "description": "Physical distance in the patient between the centers of each pixel",
                 "dtype": "string",
                 "aliases": [
                     "PixelSpacing",
@@ -240,19 +240,20 @@
                     "Image Spacing",
                     "Imager Pixel Spacing"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Manufacturer": {
-                "description": " ",
+                "description": "Device manufacturer",
                 "dtype": "string",
                 "aliases": [
                     "Device Manufacturer",
-                    "Scanner Manufacturer"
+                    "Scanner Manufacturer",
+                    "Vendor"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Manufacturer/Model": {
-                "description": " ",
+                "description": "Device model",
                 "dtype": "string",
                 "aliases": [
                     "Manufacturer's Model Name",
@@ -262,19 +263,19 @@
                     "Scanner",
                     "Device"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Manufacturer/Year": {
-                "description": " ",
+                "description": "Year of manufacture",
                 "dtype": "string",
                 "aliases": [
                     "Device Year",
                     "Model Year"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Manufacturer/Regulatory": {
-                "description": " ",
+                "description": "Regulatory status of the device",
                 "dtype": "string",
                 "aliases": [
                     "Device Manufacturer Regulatory",
@@ -285,7 +286,7 @@
         },
         "Additional Fields": {
             "Photometric Interpretation": {
-                "description": " ",
+                "description": "Intended interpretation of the image pixel data (Monochrome 1 or Monochrome 2)",
                 "dtype": "string",
                 "aliases": [
                     "Photometry"
@@ -293,7 +294,7 @@
                 "checkCoverage": false
             },
             "Pixel Padding Value": {
-                "description": " ",
+                "description": "Specific pixel value used to pad the grayscale image",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -301,7 +302,7 @@
                 "checkCoverage": false
             },
             "Pixel Padding Range Limit": {
-                "description": " ",
+                "description": "DICOM attribute that defines the range of pixel values used for padding, which is often used to fill areas outside the breast tissue in the image",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -309,7 +310,7 @@
                 "checkCoverage": false
             },
             "Window Center": {
-                "description": " ",
+                "description": "Window Center for display",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -317,7 +318,7 @@
                 "checkCoverage": false
             },
             "Window Width": {
-                "description": " ",
+                "description": "Window Width for display",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -325,7 +326,7 @@
                 "checkCoverage": false
             },
             "Rescale Intercept": {
-                "description": " ",
+                "description": "The value b in relationship between stored values (SV) and the output units.",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -333,7 +334,7 @@
                 "checkCoverage": false
             },
             "Rescale Slope": {
-                "description": " ",
+                "description": "m in the equation specified in Rescale Intercept",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -341,7 +342,7 @@
                 "checkCoverage": false
             },
             "Window Center & Width Explanation": {
-                "description": " ",
+                "description": "Free form explanation of the meaning of the Window Center and Width",
                 "dtype": "string",
                 "aliases": [
                     "Window Center Explanation",
@@ -354,46 +355,46 @@
     "Modality Specific Fields": {
         "DBT": {
             "Projection Views": {
-                "description": " ",
-                "dtype": "string",
+                "description": "Number of projection views used for the DBT acquisition",
+                "dtype": "int",
                 "aliases": [
-                    "Number of projection views\u00a0",
+                    "Number of projection views",
                     "Projections"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Reconstruction Method": {
-                "description": " ",
+                "description": "Reconstruction algorithm used to create 3D DBT images from 2D X-ray projections",
                 "dtype": "string",
                 "aliases": [
                     "Reconstruction Technique",
                     "Reconstruction Mode"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Slice Thickness": {
-                "description": " ",
+                "description": "Thickness of reconstructed slices",
                 "dtype": "string",
                 "aliases": [
                     "Slice Width"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Angular Range": {
-                "description": " ",
+                "description": "Range of angles through which the x-ray tube rotates while acquiring projection images",
                 "dtype": "string",
                 "aliases": [
                     "Angle Range",
                     "Angle"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             }
         }
     },
     "Task Specific Fields": {
         "Density Estimation": {
             "Breast Density": {
-                "description": " ",
+                "description": "Breast density expressed as a numeric value or ACR category",
                 "dtype": "string",
                 "aliases": [
                     "Density",
@@ -401,12 +402,12 @@
                     "ACR",
                     "ACR Value"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             }
         },
         "Cancer Detection": {
             "BIRADS": {
-                "description": " ",
+                "description": "BIRADS score",
                 "dtype": "string",
                 "aliases": [
                     "BI-RADS",
@@ -414,10 +415,10 @@
                     "BIRADS Score",
                     "Finding BIRADS"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Findings": {
-                "description": " ",
+                "description": "Details of findings from scan",
                 "dtype": "string",
                 "aliases": [
                     "Finding Categories",
@@ -426,7 +427,7 @@
                 "checkCoverage": false
             },
             "Finding location": {
-                "description": " ",
+                "description": "Location of finding",
                 "dtype": "string",
                 "aliases": [
                     "Lesion Annotation",

@@ -2,7 +2,7 @@
     "General Fields": {
         "Core Fields": {
             "Patient ID": {
-                "description": " ",
+                "description": "Unique identifier for the patient",
                 "dtype": "string",
                 "aliases": [
                     "Patient Identifier",
@@ -12,7 +12,7 @@
                 "checkCoverage": false
             },
             "Patient Birth Date/Age": {
-                "description": " ",
+                "description": "Birthdate of the patient",
                 "dtype": "string",
                 "aliases": [
                     "Birth Date",
@@ -23,19 +23,19 @@
                     "Patient's Age",
                     "Age at dx"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Patient Sex": {
-                "description": " ",
+                "description": "Sex of the patient",
                 "dtype": "string",
                 "aliases": [
                     "Sex",
                     "Gender"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "History/Prior": {
-                "description": " ",
+                "description": "Relevant patient history",
                 "dtype": "string",
                 "aliases": [
                     "History",
@@ -46,24 +46,24 @@
                 "checkCoverage": false
             },
             "Race": {
-                "description": " ",
+                "description": "Patient Race",
                 "dtype": "string",
                 "aliases": [
                     "Demographic Group"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Ethnicity": {
-                "description": " ",
+                "description": "Patient Ethnicity",
                 "dtype": "string",
                 "aliases": [
                     "Ethnic Background",
                     "Cultural Group"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Study ID": {
-                "description": " ",
+                "description": "Unique identifier for the study",
                 "dtype": "string",
                 "aliases": [
                     "Study Accession Number",
@@ -72,7 +72,7 @@
                 "checkCoverage": false
             },
             "Study Date": {
-                "description": " ",
+                "description": "Date the study was performed",
                 "dtype": "string",
                 "aliases": [
                     "StudyDate",
@@ -82,10 +82,10 @@
                     "Acquisition Date/Time",
                     "Date"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Study Time": {
-                "description": " ",
+                "description": "Time the study was performed",
                 "dtype": "string",
                 "aliases": [
                     "Acquisition Time",
@@ -96,45 +96,47 @@
                 "checkCoverage": false
             },
             "Series Number": {
-                "description": " ",
+                "description": "Identifier for the series within the study",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Study Series"
                 ],
                 "checkCoverage": false
             },
             "Modality ": {
-                "description": " ",
+                "description": "Imaging modality used (e.g., WSI for whole slide imaging)",
                 "dtype": "string",
                 "aliases": [
                     "Scan Type",
                     "Image Modality",
                     "Imaging Modality"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Image ID": {
-                "description": " ",
+                "description": "Unique image ID",
                 "dtype": "string",
                 "aliases": [
                     "DICOM Image UID",
                     "ImageID",
-                    "Image Identifier"
+                    "Image Identifier",
+                    "File Name",
+                    "Image Name"
                 ],
                 "checkCoverage": false
             },
             "Image Type": {
-                "description": " ",
+                "description": "Type of image (e.g., pathology slide)",
                 "dtype": "string",
                 "aliases": [
                     "ImageType",
                     "Image Category",
                     "Modality Type"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Resolution/MPP": {
-                "description": " ",
+                "description": "Spatial resolution of the image",
                 "dtype": "string",
                 "aliases": [
                     "Image Resolution",
@@ -145,7 +147,7 @@
                 "checkCoverage": false
             },
             "Magnification": {
-                "description": " ",
+                "description": "Magnification level used during imaging",
                 "dtype": "string",
                 "aliases": [
                     "AppMag"
@@ -153,31 +155,40 @@
                 "checkCoverage": false
             },
             "Scan Date": {
-                "description": " ",
+                "description": "Date the image was scanned",
                 "dtype": "string",
                 "aliases": [
-                    "Date"
+                    "Date of Scan",
+                    "Scanning Date",
+                    "Imaging Date"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Scanner Model": {
-                "description": " ",
+                "description": "Model of the scanner used",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Manufacturer's Model Name",
+                    "Equipment Model",
+                    "Device Model",
+                    "Scanner Model",
+                    "Scanner",
+                    "Device"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Vendor": {
-                "description": " ",
+                "description": "Manufacturer of the scanner",
                 "dtype": "string",
                 "aliases": [
-                    "Manufacturer"
+                    "Manufacturer",
+                    "Device Manufacturer",
+                    "Scanner Manufacturer"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "File Format": {
-                "description": " ",
+                "description": "Format of the image file (e.g., SVS, NDPI)",
                 "dtype": "string",
                 "aliases": [
                     "Format",
@@ -187,15 +198,16 @@
                 "checkCoverage": false
             },
             "Bits Allocated ": {
-                "description": " ",
+                "description": "Number of bits allocated per pixel",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Bits Allocated per Pixel",
+                    "Allocated Bits"
                 ],
                 "checkCoverage": false
             },
             "Bits Stored": {
-                "description": " ",
+                "description": "Number of bits stored per pixel",
                 "dtype": "string",
                 "aliases": [
                     "Bit Depth",
@@ -205,15 +217,16 @@
                 "checkCoverage": false
             },
             "High Bit": {
-                "description": " ",
+                "description": "Most significant bit for pixel values",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Most Significant Bit",
+                    "MSB"
                 ],
                 "checkCoverage": false
             },
             "Pixel Spacing": {
-                "description": " ",
+                "description": "Physical distance in the patient between the centers of each pixel",
                 "dtype": "string",
                 "aliases": [
                     "PixelSpacing",
@@ -225,7 +238,7 @@
                 "checkCoverage": false
             },
             "Color Space": {
-                "description": " ",
+                "description": "Color space used in the image (e.g., RGB)",
                 "dtype": "string",
                 "aliases": [
                     "ICC Profile"
@@ -233,47 +246,48 @@
                 "checkCoverage": false
             },
             "Image Width": {
-                "description": " ",
+                "description": "Width of the image in pixels",
                 "dtype": "string",
                 "aliases": [
                     "OriginalWidth"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Image Height": {
-                "description": " ",
+                "description": "Height of the image in pixels ",
                 "dtype": "string",
                 "aliases": [
                     "OriginalHeight"
                 ],
-                "checkCoverage": false
+                "checkCoverage": true
             },
             "Image Depth": {
-                "description": " ",
+                "description": "Depth of the image in pixels",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Depth"
                 ],
                 "checkCoverage": false
             },
             "Image Channels": {
-                "description": " ",
+                "description": "Number of color channels",
                 "dtype": "string",
                 "aliases": [
-                    "Number of Channels"
+                    "Number of Channels",
+                    "Channel Number"
                 ],
                 "checkCoverage": false
             },
             "Image Bit Depth": {
-                "description": " ",
+                "description": "Bit depth per channel",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Bits Per Channel"
                 ],
                 "checkCoverage": false
             },
             "File Size": {
-                "description": " ",
+                "description": "Size of the file in bytes",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -281,63 +295,65 @@
                 "checkCoverage": false
             },
             "Tile Width": {
-                "description": " ",
+                "description": "Width of each tile in pixels",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Pixel Per Tile"
                 ],
                 "checkCoverage": false
             },
             "Tile Height": {
-                "description": " ",
+                "description": "Height of each tile in pixels",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Pixel Per Tile"
                 ],
                 "checkCoverage": false
             },
             "Compression": {
-                "description": " ",
+                "description": "Specifies whether lossy compression has been applied to the image",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Compressed",
+                    "Lossy"
                 ],
                 "checkCoverage": false
             },
             "Compression Ratio": {
-                "description": " ",
+                "description": "The compression ratio(s) used for the lossy compressed image data",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Compression Factor",
+                    "Reduction Ratio"
                 ],
                 "checkCoverage": false
             },
             "Compression Method": {
-                "description": " ",
+                "description": "The method(s) used to compress the image",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Compression Type"
                 ],
                 "checkCoverage": false
             },
             "Specimen ID": {
-                "description": " ",
+                "description": "Unique identifier for the specimen",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Sample ID"
                 ],
                 "checkCoverage": false
             },
             "Specimen Type": {
-                "description": " ",
+                "description": "Type of specimen (e.g., biopsy, resection)",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Specimen Source"
                 ],
                 "checkCoverage": false
             },
             "Fixative Type": {
-                "description": " ",
+                "description": "Type of fixative used for the specimen",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -345,15 +361,15 @@
                 "checkCoverage": false
             },
             "Staining Method": {
-                "description": " ",
+                "description": "Staining method used to prepare the slide (e.g., H&E, IHC)",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Slide Preparation Method"
                 ],
                 "checkCoverage": false
             },
             "Staining Protocol": {
-                "description": " ",
+                "description": "Details of the staining process used",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -361,7 +377,7 @@
                 "checkCoverage": false
             },
             "Annotation": {
-                "description": " ",
+                "description": "Descriptions or markers added to the image",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -369,7 +385,7 @@
                 "checkCoverage": false
             },
             "Annotation Date": {
-                "description": " ",
+                "description": "Date the annotations were made",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -377,7 +393,7 @@
                 "checkCoverage": false
             },
             "Annotator": {
-                "description": " ",
+                "description": "Person who made the annotations",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -385,57 +401,58 @@
                 "checkCoverage": false
             },
             "Annotation Format": {
-                "description": " ",
+                "description": "Format used for annotation file",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Annotation File Format"
                 ],
                 "checkCoverage": false
             },
             "Exposure Time": {
-                "description": " ",
+                "description": "Time the image was exposed",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Exposure Duration"
                 ],
                 "checkCoverage": false
             },
             "Illumination Source": {
-                "description": " ",
+                "description": "Light source used for imaging",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Light Source"
                 ],
                 "checkCoverage": false
             },
             "Objective Lens": {
-                "description": " ",
+                "description": "Type and magnification of the objective lens used",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Lens Type",
+                    "Lens Information"
                 ],
                 "checkCoverage": false
             },
             "DPI": {
-                "description": " ",
+                "description": "Dots per inch, a measure of image resolution",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Dots Per Inch"
                 ],
                 "checkCoverage": false
             },
             "Color Correction": {
-                "description": " ",
+                "description": "Color correction used",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Color Correction Method"
                 ],
                 "checkCoverage": false
             }
         },
         "Additional Fields": {
             "Photometric Interpretation": {
-                "description": " ",
+                "description": "Type of image representation (e.g., RGB, MONOCHROME)",
                 "dtype": "string",
                 "aliases": [
                     "Photometry"
@@ -443,69 +460,12 @@
                 "checkCoverage": false
             },
             "Bits Stored": {
-                "description": " ",
+                "description": "Number of bits stored for each pixel",
                 "dtype": "string",
                 "aliases": [
                     "Bit Depth",
                     "BitsStored",
                     "Stored Bits"
-                ],
-                "checkCoverage": false
-            },
-            "Pixel Padding Value": {
-                "description": " ",
-                "dtype": "string",
-                "aliases": [
-                    ""
-                ],
-                "checkCoverage": false
-            },
-            "Pixel Padding Range Limit": {
-                "description": " ",
-                "dtype": "string",
-                "aliases": [
-                    ""
-                ],
-                "checkCoverage": false
-            },
-            "Window Center": {
-                "description": " ",
-                "dtype": "string",
-                "aliases": [
-                    ""
-                ],
-                "checkCoverage": false
-            },
-            "Window Width": {
-                "description": " ",
-                "dtype": "string",
-                "aliases": [
-                    ""
-                ],
-                "checkCoverage": false
-            },
-            "Rescale Intercept": {
-                "description": " ",
-                "dtype": "string",
-                "aliases": [
-                    ""
-                ],
-                "checkCoverage": false
-            },
-            "Rescale Slope": {
-                "description": " ",
-                "dtype": "string",
-                "aliases": [
-                    ""
-                ],
-                "checkCoverage": false
-            },
-            "Window Center & Width Explanation": {
-                "description": " ",
-                "dtype": "string",
-                "aliases": [
-                    "Window Center Explanation",
-                    "Window Center & Width Explanation"
                 ],
                 "checkCoverage": false
             }
@@ -514,15 +474,15 @@
     "File Type Specific Fields": {
         "SVS": {
             "Image Path": {
-                "description": " ",
+                "description": "File path to the image",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "File Path"
                 ],
                 "checkCoverage": false
             },
             "Description": {
-                "description": " ",
+                "description": "Details about the image library version, dimensions, and compression",
                 "dtype": "string",
                 "aliases": [
                     "Details"
@@ -530,7 +490,7 @@
                 "checkCoverage": false
             },
             "Apparent Magnification": {
-                "description": " ",
+                "description": "Magnification level of the image",
                 "dtype": "string",
                 "aliases": [
                     "Magnification",
@@ -539,7 +499,7 @@
                 "checkCoverage": false
             },
             "StripeWidth": {
-                "description": " ",
+                "description": "Width of each stripe in the image",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -547,31 +507,31 @@
                 "checkCoverage": false
             },
             "ScanScope ID": {
-                "description": " ",
+                "description": "ID of the ScanScope device used",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Device ID"
                 ],
                 "checkCoverage": false
             },
             "Filename": {
-                "description": " ",
+                "description": "Filename of the image",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "File Name"
                 ],
                 "checkCoverage": false
             },
             "Date": {
-                "description": " ",
+                "description": "Date when the image was captured",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Acquisition Date"
                 ],
                 "checkCoverage": false
             },
             "Time": {
-                "description": " ",
+                "description": "Time when the image was captured",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -579,7 +539,7 @@
                 "checkCoverage": false
             },
             "Time Zone": {
-                "description": " ",
+                "description": "Time zone of the image capture time",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -587,7 +547,7 @@
                 "checkCoverage": false
             },
             "User": {
-                "description": " ",
+                "description": "User ID who captured the image",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -595,7 +555,7 @@
                 "checkCoverage": false
             },
             "Parmset": {
-                "description": " ",
+                "description": "Parameter set used, indicating no focus points on the edge",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -603,15 +563,16 @@
                 "checkCoverage": false
             },
             "MPP": {
-                "description": " ",
+                "description": "Microns per pixel (resolution)",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Microns per pixel",
+                    "Resolution"
                 ],
                 "checkCoverage": false
             },
             "Left": {
-                "description": " ",
+                "description": "Left offset coordinate",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -619,7 +580,7 @@
                 "checkCoverage": false
             },
             "Top": {
-                "description": " ",
+                "description": "Top offset coordinate",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -627,7 +588,7 @@
                 "checkCoverage": false
             },
             "LineCameraSkew": {
-                "description": " ",
+                "description": "Skew of the line camera",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -635,7 +596,7 @@
                 "checkCoverage": false
             },
             "LineAreaXOffset": {
-                "description": " ",
+                "description": "X offset for the line area",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -643,7 +604,7 @@
                 "checkCoverage": false
             },
             "LineAreaYOffset": {
-                "description": " ",
+                "description": "Y offset for the line area",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -651,7 +612,7 @@
                 "checkCoverage": false
             },
             "Focus Offset": {
-                "description": " ",
+                "description": "Focus offset value",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -659,7 +620,7 @@
                 "checkCoverage": false
             },
             "DSR ID": {
-                "description": " ",
+                "description": "Digital Slide Repository ID",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -667,23 +628,24 @@
                 "checkCoverage": false
             },
             "ImageID": {
-                "description": " ",
+                "description": "Unique image ID",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Image Identifier",
+                    "Image Name"
                 ],
                 "checkCoverage": false
             },
             "Exposure Time": {
-                "description": " ",
+                "description": "Exposure time of the camera",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Exposure Duration"
                 ],
                 "checkCoverage": false
             },
             "Exposure Scale": {
-                "description": " ",
+                "description": "Scale of the exposure",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -691,7 +653,7 @@
                 "checkCoverage": false
             },
             "DisplayColor": {
-                "description": " ",
+                "description": "Display color settings",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -699,7 +661,7 @@
                 "checkCoverage": false
             },
             "SessionMode": {
-                "description": " ",
+                "description": "Session mode",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -707,7 +669,7 @@
                 "checkCoverage": false
             },
             "OriginalWidth": {
-                "description": " ",
+                "description": "Original width of the image",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -715,7 +677,7 @@
                 "checkCoverage": false
             },
             "OriginalHeight": {
-                "description": " ",
+                "description": "Original height of the image",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -723,15 +685,15 @@
                 "checkCoverage": false
             },
             "ICC Profile": {
-                "description": " ",
+                "description": "ICC profile used",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Color Profile"
                 ],
                 "checkCoverage": false
             },
             "Image Type": {
-                "description": " ",
+                "description": "Type of image",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -739,7 +701,7 @@
                 "checkCoverage": false
             },
             "Image Width": {
-                "description": " ",
+                "description": "Width of the image in pixels",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -747,7 +709,7 @@
                 "checkCoverage": false
             },
             "Image Height": {
-                "description": " ",
+                "description": "Height of the image in pixels",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -755,7 +717,7 @@
                 "checkCoverage": false
             },
             "Image Depth": {
-                "description": " ",
+                "description": "Depth of the image in pixels",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -763,7 +725,7 @@
                 "checkCoverage": false
             },
             "Image Channels": {
-                "description": " ",
+                "description": "Number of color channels",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -771,7 +733,7 @@
                 "checkCoverage": false
             },
             "Image Bit Depth": {
-                "description": " ",
+                "description": "Bit depth per channel",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -779,7 +741,7 @@
                 "checkCoverage": false
             },
             "File Size": {
-                "description": " ",
+                "description": "Size of the file in bytes",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -787,31 +749,31 @@
                 "checkCoverage": false
             },
             "Compression Type": {
-                "description": " ",
+                "description": "Type of image compression used",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Image Compression"
                 ],
                 "checkCoverage": false
             },
             "Compression Quality": {
-                "description": " ",
+                "description": "Quality of the compression",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Quality Factor"
                 ],
                 "checkCoverage": false
             },
             "Compression Ratio": {
-                "description": " ",
+                "description": "Ratio of compressed to original image",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Compression Factor"
                 ],
                 "checkCoverage": false
             },
             "Organization": {
-                "description": " ",
+                "description": "Organization of the tiles",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -819,7 +781,7 @@
                 "checkCoverage": false
             },
             "Tile Width": {
-                "description": " ",
+                "description": "Width of each tile in pixels",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -827,7 +789,7 @@
                 "checkCoverage": false
             },
             "Tile Height": {
-                "description": " ",
+                "description": "Height of each tile in pixels",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -837,7 +799,7 @@
         },
         "DICOM": {
             "Patients Name": {
-                "description": " ",
+                "description": "Name of the patient",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -845,31 +807,37 @@
                 "checkCoverage": false
             },
             "Patient ID": {
-                "description": " ",
+                "description": "Identifier for the patient",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Patient Identifier",
+                    "Unique Patient ID",
+                    "DICOM Patient ID"
                 ],
                 "checkCoverage": false
             },
             "Patient's Birth Date": {
-                "description": " ",
+                "description": "Patient's birth date",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Birth Date",
+                    "Date of Birth",
+                    "DOB"
                 ],
                 "checkCoverage": false
             },
             "Patient's Sex": {
-                "description": " ",
+                "description": "Sex of the patient",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Patient's Sex",
+                    "Sex",
+                    "Gender"
                 ],
                 "checkCoverage": false
             },
             "Study Instance UID": {
-                "description": " ",
+                "description": "Unique identifier for the study",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -877,7 +845,7 @@
                 "checkCoverage": false
             },
             "Series Instance UID": {
-                "description": " ",
+                "description": "Unique identifier for the series",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -885,7 +853,7 @@
                 "checkCoverage": false
             },
             "Study ID": {
-                "description": " ",
+                "description": "Identifier for the study",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -893,7 +861,7 @@
                 "checkCoverage": false
             },
             "Series Number": {
-                "description": " ",
+                "description": "Number identifying the series",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -901,7 +869,7 @@
                 "checkCoverage": false
             },
             "Instance Number": {
-                "description": " ",
+                "description": "Number identifying the instance",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -909,7 +877,7 @@
                 "checkCoverage": false
             },
             "Study Date": {
-                "description": " ",
+                "description": "Date the study started",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -917,7 +885,7 @@
                 "checkCoverage": false
             },
             "Study Time": {
-                "description": " ",
+                "description": "Time the study started",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -925,7 +893,7 @@
                 "checkCoverage": false
             },
             "Accession Number": {
-                "description": " ",
+                "description": "Identifier of the order request for the study",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -933,7 +901,7 @@
                 "checkCoverage": false
             },
             "Modality": {
-                "description": " ",
+                "description": "Type of equipment that created the image",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -941,23 +909,29 @@
                 "checkCoverage": false
             },
             "Manufacturer": {
-                "description": " ",
+                "description": "Manufacturer of the equipment",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Device Manufacturer",
+                    "Scanner Manufacturer",
+                    "Vendor"
                 ],
                 "checkCoverage": false
             },
             "Manufacturer's Model Name": {
-                "description": " ",
+                "description": "Model name of the equipment",
                 "dtype": "string",
                 "aliases": [
-                    ""
+                    "Equipment Model",
+                    "Device Model",
+                    "Scanner Model",
+                    "Scanner",
+                    "Device"
                 ],
                 "checkCoverage": false
             },
             "Software Versions": {
-                "description": " ",
+                "description": "Software version(s) used",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -965,7 +939,7 @@
                 "checkCoverage": false
             },
             "SOP Instance UID": {
-                "description": " ",
+                "description": "Unique identifier for the SOP instance",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -973,7 +947,7 @@
                 "checkCoverage": false
             },
             "SOP Class UID": {
-                "description": " ",
+                "description": "Unique identifier for the SOP class",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -981,7 +955,7 @@
                 "checkCoverage": false
             },
             "Rows": {
-                "description": " ",
+                "description": "Number of rows in the image",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -989,7 +963,7 @@
                 "checkCoverage": false
             },
             "Columns": {
-                "description": " ",
+                "description": "Number of columns in the image",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -997,7 +971,7 @@
                 "checkCoverage": false
             },
             "Pixel Spacing": {
-                "description": " ",
+                "description": "Physical distance between the center of each pixel, specified by a numeric pair indicating row and column spacing",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1005,7 +979,7 @@
                 "checkCoverage": false
             },
             "Bits Allocated": {
-                "description": " ",
+                "description": "Number of bits allocated for each pixel",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1013,7 +987,7 @@
                 "checkCoverage": false
             },
             "Bits Stored": {
-                "description": " ",
+                "description": "Number of bits stored for each pixel",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1021,17 +995,162 @@
                 "checkCoverage": false
             },
             "High Bit": {
-                "description": " ",
+                "description": "Most significant bit for pixel values",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Samples per Pixel": {
+                "description": "Number of samples (color channels) per pixel",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Photometric Interpretation": {
+                "description": "Type of image representation (e.g., RGB, MONOCHROME)",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Request Attributes Sequence": {
+                "description": "Sequence that contains attributes of the requested procedure",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Performed Procedure Step Start Date": {
+                "description": "Date the procedure step started",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Performed Procedure Step Start Time": {
+                "description": "Time the procedure step started",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Performed Procedure Step ID": {
+                "description": "Identifier for the performed procedure step",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Performed Procedure Step Description": {
+                "description": "Description of the performed procedure step",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Acquisition Context Sequence": {
+                "description": "Sequence that identifies the conditions under which the data was acquired",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Lossy Image Compression": {
+                "description": "Specifies whether lossy compression has been applied to the image",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Lossy Image Compression Ratio": {
+                "description": "The compression ratio(s) used for the lossy compressed image data",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Lossy Image Compression Method": {
+                "description": "The method(s) used to compress the image",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Slice Thickness": {
+                "description": "Nominal slice thickness",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Spacing Between Slices": {
+                "description": "Spacing between slices",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Series Description": {
+                "description": "Description of the series",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Position Reference Indicator": {
+                "description": "An indicator of the frame of reference",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Slice Location": {
+                "description": "Relative position of the image plane",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Content Date": {
+                "description": "Date the image pixel data creation started",
+                "dtype": "string",
+                "aliases": [
+                    ""
+                ],
+                "checkCoverage": false
+            },
+            "Content Time": {
+                "description": "Time the image pixel data creation started",
                 "dtype": "string",
                 "aliases": [
                     ""
                 ],
                 "checkCoverage": false
             }
+
         },
         "NDPI": {
             "File Path": {
-                "description": " ",
+                "description": "The path to the NDPI file",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1039,7 +1158,7 @@
                 "checkCoverage": false
             },
             "Description": {
-                "description": " ",
+                "description": "General description of the image, including scanner model and software version",
                 "dtype": "string",
                 "aliases": [
                     "Details"
@@ -1047,7 +1166,7 @@
                 "checkCoverage": false
             },
             "Magnification": {
-                "description": " ",
+                "description": "The optical magnification used during scanning",
                 "dtype": "string",
                 "aliases": [
                     "Optical Magnification"
@@ -1055,7 +1174,7 @@
                 "checkCoverage": false
             },
             "MPP": {
-                "description": " ",
+                "description": "Microns per pixel, indicating the resolution of the scan",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1063,7 +1182,7 @@
                 "checkCoverage": false
             },
             "Image Width": {
-                "description": " ",
+                "description": "The width of the entire scanned image in pixels",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1071,7 +1190,7 @@
                 "checkCoverage": false
             },
             "Image Height": {
-                "description": " ",
+                "description": "The height of the entire scanned image in pixels",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1079,7 +1198,7 @@
                 "checkCoverage": false
             },
             "Tile Width": {
-                "description": " ",
+                "description": "The width of individual tiles in the image",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1087,7 +1206,7 @@
                 "checkCoverage": false
             },
             "Tile Height": {
-                "description": " ",
+                "description": "The height of individual tiles in the image",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1095,7 +1214,7 @@
                 "checkCoverage": false
             },
             "Bits per sample": {
-                "description": " ",
+                "description": "Number of bits used to represent each pixel value",
                 "dtype": "string",
                 "aliases": [
                     "Image Bit Depth"
@@ -1103,7 +1222,7 @@
                 "checkCoverage": false
             },
             "Compression": {
-                "description": " ",
+                "description": "Compression method used for the image data (e.g., JPEG)",
                 "dtype": "string",
                 "aliases": [
                     "Compression Type"
@@ -1111,7 +1230,7 @@
                 "checkCoverage": false
             },
             "Compression Quality": {
-                "description": " ",
+                "description": "Quality setting used for JPEG compression",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1119,7 +1238,7 @@
                 "checkCoverage": false
             },
             "Image Depth": {
-                "description": " ",
+                "description": "Number of focal planes or z-slices in the image",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1127,7 +1246,7 @@
                 "checkCoverage": false
             },
             "Image Channels": {
-                "description": " ",
+                "description": "Number of color channels in the image",
                 "dtype": "string",
                 "aliases": [
                     "Number of channels"
@@ -1135,7 +1254,7 @@
                 "checkCoverage": false
             },
             "Scanner Model": {
-                "description": " ",
+                "description": "Model of the scanner used to capture the image",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1143,7 +1262,7 @@
                 "checkCoverage": false
             },
             "Scanner Serial Number": {
-                "description": " ",
+                "description": "Serial number of the scanner",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1151,7 +1270,7 @@
                 "checkCoverage": false
             },
             "Scan Date": {
-                "description": " ",
+                "description": "Date when the image was scanned",
                 "dtype": "string",
                 "aliases": [
                     "Date"
@@ -1159,7 +1278,7 @@
                 "checkCoverage": false
             },
             "Scan Time": {
-                "description": " ",
+                "description": "Time when the image was scanned",
                 "dtype": "string",
                 "aliases": [
                     "Time"
@@ -1167,7 +1286,7 @@
                 "checkCoverage": false
             },
             "User": {
-                "description": " ",
+                "description": "User who performed the scan",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1175,7 +1294,7 @@
                 "checkCoverage": false
             },
             "Exposure Time": {
-                "description": " ",
+                "description": "Exposure time for each image capture",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1183,7 +1302,7 @@
                 "checkCoverage": false
             },
             "Objective Lens": {
-                "description": " ",
+                "description": "Description of the objective lens used, including magnification and numerical aperture",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1191,7 +1310,7 @@
                 "checkCoverage": false
             },
             "Z Stack Positions": {
-                "description": " ",
+                "description": "Positions of the focal planes in a z-stack",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1199,7 +1318,7 @@
                 "checkCoverage": false
             },
             "File Size": {
-                "description": " ",
+                "description": "Size of the NDPI file in bytes",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1207,15 +1326,15 @@
                 "checkCoverage": false
             },
             "Patient ID": {
-                "description": " ",
+                "description": "Identifier for the patient",
                 "dtype": "string",
                 "aliases": [
                     ""
                 ],
                 "checkCoverage": false
             },
-            "Accention Number": {
-                "description": " ",
+            "Accession Number": {
+                "description": "Identifier for the study or case",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1223,7 +1342,7 @@
                 "checkCoverage": false
             },
             "Image ID": {
-                "description": " ",
+                "description": "Unique identifier for the image",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1231,7 +1350,7 @@
                 "checkCoverage": false
             },
             "Software Version": {
-                "description": " ",
+                "description": "Version of the software used to capture the image",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1239,7 +1358,7 @@
                 "checkCoverage": false
             },
             "X Offset": {
-                "description": " ",
+                "description": "X-axis offset for the image tiles",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1247,7 +1366,7 @@
                 "checkCoverage": false
             },
             "Y Offset": {
-                "description": " ",
+                "description": "Y-axis offset for the image tiles",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1255,7 +1374,7 @@
                 "checkCoverage": false
             },
             "Z Offset": {
-                "description": " ",
+                "description": "Z-axis offset for the image tiles",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1265,7 +1384,7 @@
         },
         "SCN": {
             "File Path": {
-                "description": " ",
+                "description": "The path to the SCN file",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1273,7 +1392,7 @@
                 "checkCoverage": false
             },
             "Description": {
-                "description": " ",
+                "description": "General description of the image, including scanner model and software version",
                 "dtype": "string",
                 "aliases": [
                     "Details"
@@ -1281,7 +1400,7 @@
                 "checkCoverage": false
             },
             "Magnification": {
-                "description": " ",
+                "description": "The optical magnification used during scanning",
                 "dtype": "string",
                 "aliases": [
                     "Optical Magnification"
@@ -1289,7 +1408,7 @@
                 "checkCoverage": false
             },
             "MPP": {
-                "description": " ",
+                "description": "Microns per pixel, indicating the resolution of the scan",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1297,7 +1416,7 @@
                 "checkCoverage": false
             },
             "Image Width": {
-                "description": " ",
+                "description": "The width of the entire scanned image in pixels",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1305,7 +1424,7 @@
                 "checkCoverage": false
             },
             "Image Height": {
-                "description": " ",
+                "description": "The height of the entire scanned image in pixels",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1313,7 +1432,7 @@
                 "checkCoverage": false
             },
             "Tile Width": {
-                "description": " ",
+                "description": "The width of individual tiles in the image",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1321,7 +1440,7 @@
                 "checkCoverage": false
             },
             "Tile Height": {
-                "description": " ",
+                "description": "The height of individual tiles in the image",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1329,7 +1448,7 @@
                 "checkCoverage": false
             },
             "Bits per sample": {
-                "description": " ",
+                "description": "Number of bits used to represent each pixel value",
                 "dtype": "string",
                 "aliases": [
                     "Image Bit Depth"
@@ -1337,7 +1456,7 @@
                 "checkCoverage": false
             },
             "Compression": {
-                "description": " ",
+                "description": "Compression method used for the image data (e.g., JPEG)",
                 "dtype": "string",
                 "aliases": [
                     "Compression Type"
@@ -1345,7 +1464,7 @@
                 "checkCoverage": false
             },
             "Compression Quality": {
-                "description": " ",
+                "description": "Quality setting used for JPEG compression",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1353,7 +1472,7 @@
                 "checkCoverage": false
             },
             "Image Depth": {
-                "description": " ",
+                "description": "Number of focal planes or z-slices in the image",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1361,7 +1480,7 @@
                 "checkCoverage": false
             },
             "Image Channels": {
-                "description": " ",
+                "description": "Number of color channels in the image",
                 "dtype": "string",
                 "aliases": [
                     "Number of channels"
@@ -1369,7 +1488,7 @@
                 "checkCoverage": false
             },
             "Scanner Model": {
-                "description": " ",
+                "description": "Model of the scanner used to capture the image",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1377,7 +1496,7 @@
                 "checkCoverage": false
             },
             "Vendor": {
-                "description": " ",
+                "description": "Manufacturer of the scanner",
                 "dtype": "string",
                 "aliases": [
                     "Scanner Manufacturer",
@@ -1386,7 +1505,7 @@
                 "checkCoverage": false
             },
             "Scanner Serial Number": {
-                "description": " ",
+                "description": "Serial number of the scanner",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1394,7 +1513,7 @@
                 "checkCoverage": false
             },
             "Scan Date": {
-                "description": " ",
+                "description": "Date when the image was scanned",
                 "dtype": "string",
                 "aliases": [
                     "Date"
@@ -1402,7 +1521,7 @@
                 "checkCoverage": false
             },
             "Scan Time": {
-                "description": " ",
+                "description": "Time when the image was scanned",
                 "dtype": "string",
                 "aliases": [
                     "Time"
@@ -1410,7 +1529,7 @@
                 "checkCoverage": false
             },
             "User": {
-                "description": " ",
+                "description": "User who performed the scan",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1418,7 +1537,7 @@
                 "checkCoverage": false
             },
             "Exposure Time": {
-                "description": " ",
+                "description": "Exposure time for each image capture",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1426,7 +1545,7 @@
                 "checkCoverage": false
             },
             "Objective Lens": {
-                "description": " ",
+                "description": "Description of the objective lens used, including magnification and numerical aperture",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1434,7 +1553,7 @@
                 "checkCoverage": false
             },
             "Z Stack Positions": {
-                "description": " ",
+                "description": "Positions of the focal planes in a z-stack",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1442,7 +1561,7 @@
                 "checkCoverage": false
             },
             "File Size": {
-                "description": " ",
+                "description": "Size of the SCN file in bytes",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1450,7 +1569,7 @@
                 "checkCoverage": false
             },
             "Patient ID": {
-                "description": " ",
+                "description": "Identifier for the patient",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1458,7 +1577,7 @@
                 "checkCoverage": false
             },
             "Accession Number": {
-                "description": " ",
+                "description": "Identifier for the study or case",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1466,7 +1585,7 @@
                 "checkCoverage": false
             },
             "Image ID": {
-                "description": " ",
+                "description": "Unique identifier for the image",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1474,7 +1593,7 @@
                 "checkCoverage": false
             },
             "Software Version": {
-                "description": " ",
+                "description": "Version of the software used to capture the image",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1482,7 +1601,7 @@
                 "checkCoverage": false
             },
             "X Offset": {
-                "description": " ",
+                "description": "X-axis offset for the image tiles",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1490,7 +1609,7 @@
                 "checkCoverage": false
             },
             "Y Offset": {
-                "description": " ",
+                "description": "Y-axis offset for the image tiles",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1498,7 +1617,7 @@
                 "checkCoverage": false
             },
             "Z Offset": {
-                "description": " ",
+                "description": "Z-axis offset for the image tiles",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1506,7 +1625,7 @@
                 "checkCoverage": false
             },
             "Session Mode": {
-                "description": " ",
+                "description": "Mode of the scanning session",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1514,7 +1633,7 @@
                 "checkCoverage": false
             },
             "Focus Offset": {
-                "description": " ",
+                "description": "Focus offset value",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1522,7 +1641,7 @@
                 "checkCoverage": false
             },
             "Line Camera Skew": {
-                "description": " ",
+                "description": "Skew of the line camera",
                 "dtype": "string",
                 "aliases": [
                     ""
@@ -1530,15 +1649,15 @@
                 "checkCoverage": false
             },
             "Line Area X Offset": {
-                "description": " ",
+                "description": "X offset for the line area",
                 "dtype": "string",
                 "aliases": [
                     ""
                 ],
                 "checkCoverage": false
             },
-            "Line Area y Offset": {
-                "description": " ",
+            "Line Area Y Offset": {
+                "description": "Y offset for the line area",
                 "dtype": "string",
                 "aliases": [
                     ""
