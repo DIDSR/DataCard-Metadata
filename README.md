@@ -277,7 +277,7 @@ Number of complete records: 0
 0                         20              17740
 1                         21               2260
 ```
-#### Figure outputs
+#### Figure outputs 
 
 The following figures visualizing the completeness information are also produced:
 
