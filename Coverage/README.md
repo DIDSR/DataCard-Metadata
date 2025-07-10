@@ -23,10 +23,6 @@ a list of unique values and the value of the divergence measure from the referen
 A visualization of the counts of different values for the target field is also produced and saved in the `/output` directory.
 
 
-## Installation
-
-Please follow installation process for dcard-completeness.
-
 
 ## Directory organization
 
