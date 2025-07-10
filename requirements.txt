@@ -3,3 +3,4 @@ numpy==2.2.2
 matplotlib==3.10.0
 rapidfuzz==3.12.1
 sentence-transformers==3.4.1
+scipy==1.15.1

@@ -1,5 +1,6 @@
 import argparse
-from compute_coverage import *
+from Completeness import *
+from Coverage import *
 
 
 def main():

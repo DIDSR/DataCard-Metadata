@@ -1,19 +1,12 @@
-
+import numpy as np
+import matplotlib.pyplot as plt
 import sys
 import os
+import time
 import scipy.stats as stats
 import re
 import ast
 from scipy.special import rel_entr
-
-current_dir = os.getcwd()
-parent_dir = os.path.join(current_dir,'..')
-sys.path.append(parent_dir)
-
-from field_matching_utils import *
-from io_utils import *
-from score_utils import *
-
 
 
 def calculate_hellinger_dist(counts_p, counts_q, symmetric=False):
@@ -100,6 +93,7 @@ def get_divergence_dfs(df1, df2=None, field_values=None, metric="HD", fill_value
 
 def get_coverage_df(dataset_df_full, required_fields, available_headers=None, coverage_params=None):
 
+
     target_field = coverage_params['target_field']
     assert target_field in available_headers.keys() or target_field in dataset_df_full.columns, f'Target field {target_field} not found in metadata.'
 
@@ -133,9 +127,12 @@ def get_coverage_df(dataset_df_full, required_fields, available_headers=None, co
     else:
         data_values = dataset_df[target_field].dropna()
 
-    # (Optional) Use regex to extract value from text
+    # If data type is int, attempt to use regex to extract values from text
     if coverage_params['dtype'] == 'int':
-        data_values = data_values.str.extract(r'0*(\d+)', expand=False).astype('int32')
+        try:
+            data_values = data_values.str.extract(r'0*(\d+)', expand=False).astype('int32')
+        except:
+            data_values = data_values.astype('int32')
         if coverage_params['thresholds'] is not None:
             data_values = data_values[(data_values >= coverage_params['thresholds'][0]) & (data_values <= coverage_params['thresholds'][1])]
 
@@ -185,7 +182,7 @@ def coverage_check(dataset_df_full, required_fields, available_headers=None, dat
         num_unique = len(data_values.unique())
         if num_unique > 50 and coverage_params['bin_count'] is None:
             print('Too many values to plot.')
-            return 0
+            return features
   
         if coverage_params['bin_count'] is not None:
             fig_width = 12 + 0.1*int(coverage_params['bin_count'])
@@ -210,6 +207,6 @@ def coverage_check(dataset_df_full, required_fields, available_headers=None, dat
                         ha='center', va='bottom')
         if savefig:
             timestr = time.strftime("%Y%m%d_%H%M%S")
-            fig.savefig('../output/Coverage_'+coverage_params['target_field']+'_'+timestr+'.png',bbox_inches='tight',pad_inches=0.1,facecolor='w')
+            fig.savefig('output/Coverage_'+timestr+'.png',bbox_inches='tight',pad_inches=0.1,facecolor='w')
         
     return features

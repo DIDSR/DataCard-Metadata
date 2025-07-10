@@ -2,7 +2,8 @@ import argparse
 import os
 
 from Completeness import *
-
+from Coverage import *
+from Consistency import * 
 
 
 def main():
@@ -62,9 +63,6 @@ def main():
 
         # Extract missing and unexpected headers for clarity
         available_header_map = completeness_report["available_header_map"]
-        missing_headers = completeness_report["missing_headers"]
-        unexpected_headers = completeness_report["unexpected_headers"]
-        completeness_score = completeness_report["completeness_score"]
 
         # Show header mapping
         # If there are required fields missing from the dataset, list them.
@@ -75,31 +73,53 @@ def main():
                 print('{:<20}\t{:<12}'.format(k,v))
         else:
             print(f"All required fields are missing for {completeness_check_level}.")
-
-        # Step 4: Report Missing Headers
-        # If there are required fields missing from the dataset, list them.
-        if missing_headers:
-            print(f"\nMissing Headers: {missing_headers}\n")
-        else:
-            print("No missing headers. All required fields are present.")
-
-        # Step 5: Report Unexpected Headers
-        # If the dataset contains extra fields not listed in the required fields, list them.
-        if unexpected_headers:
-            print(f"Unexpected Headers: {unexpected_headers}\n")
-        else:
-            print("No unexpected headers. All dataset fields are required.")
-
-        # Step 6: Report Completeness Score
-        print(f"Completeness Score: {completeness_score:.2f}")
-
-        # Step 7: Perform record-level completeness check
-        # This checks individual columns and rows in the metadata file and reports completion information
-        record_level_results = record_level_completeness_check(metadata_df, required_fields, available_header_map,visualize=True,savefig=False)
     else:
         # Handle cases where either the dataset or required fields failed to load.
         print("Failed to load dataset or required fields.")
 
+
+    """
+    Perform coverage check for a specified field.
+
+    The coverage_params dictionary consists of the required parameters for the coverage check:
+    
+        - target_field : The metadata field for which coverage will be computed
+        - field_values : All possible values for the target field. If set to None, field_values will be generated from the unique values of the target_field in the metadata.
+        - dtype (Optional): 'str' for string or 'int' for integer type. Needed along with regex to extract data values from metadata field item strings
+        - value_buckets (Optional): For numeric variables, a list of buckets to group values into before computing consistency
+        - metric: 'KLD' for Kullback–Leibler divergence or 'HD' for Hellinger distance
+        - fill_na (Optional): Fill NA values in target field with a specific value. Set to 'None' to drop all NA values
+        - thresholds (Optional): For numeric variables, only compute coverage within a specified range of values. Eg: [10, 80]
+        - bin_count (Optional): For numeric variables, number of bins to generate a histogram plot
+    """
+    
+    coverage_params_subgroup = {
+        'target_field': "Patient Birth Date/Age",
+        'field_values': None,
+        'dtype': 'int',
+        'metric': 'HD',
+        'fill_na': None,
+        'thresholds': [11, 100],
+        'bin_count': 10,
+    }
+
+    coverage_params_target = {
+        'target_field': "mpp",
+        'field_values': None,
+        'dtype': 'str',
+        'value_buckets': [0.25, 0.5],
+        'metric': 'HD',
+        'fill_na': None,
+        'thresholds': None,
+        'bin_count': None,
+    }
+
+
+    print(f"\n\nConsistency Information: {coverage_params_target['target_field']} for subgroups of {coverage_params_subgroup['target_field']}")
+
+    f = consistency_check(metadata_df, required_fields, available_headers=available_header_map, 
+                        coverage_params_subgroup=coverage_params_subgroup, coverage_params_target=coverage_params_target,
+                        visualize=True,savefig=True)             
     
 
 if __name__ == "__main__":

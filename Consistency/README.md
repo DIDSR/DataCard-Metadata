@@ -1,6 +1,6 @@
-# DataCard - Metadata
+# Datacard - Metadata Completeness Assessment
 
-This repository contains code for the assessment of Completeness, Coverage, and Consistency for the DataCard project.
+This repository contains code for the assessment of metadata Completeness for the DataCard project.
 
 > [!NOTE]
 > **This code is work-in-progress.**
@@ -8,7 +8,10 @@ This repository contains code for the assessment of Completeness, Coverage, and 
 ## Overview
 
 This tool is intended to take a metadata table for a medical imaging dataset and generate a report indicating the
-level of Completeness, Coverage, and Consistency of the metadata. To do so, a modality specific metadata reference dictionary containing required field information is used along with the metadata file.
+level of Completeness of the metadata. To do so, a modality specific metadata reference dictionary containing required
+field information is used along with the metadata file. An outline of this pipeline is given below.
+
+![Completeness Assessment Pipeline](./images/Completeness_Pipeline.png)
 
 The current iteration of the code takes a metadata csv file and a json metadata reference dictionary as input.
 A list of matched, missing, and unexpected data header fields are returned as terminal output.
@@ -36,29 +39,27 @@ After activation, the required packages can be installed inside the environment 
 ```
 
 
-## Modules
+## Repository organization
 
-DataCard Metadata comprises several integrated modules:
+`dcard_completeness_main.py` - Main python module
 
-1. **Completeness Assessment** (dcard_completeness_main.py)
+`io_utils.py` - Functions for reading files and producing plots
 
-1. **Coverage Assessment** (dcard_coverage_main.py)
+`score_utils.py` - Functions for calculating completeness metrics
 
-1. **Consistency Assessment** (dcard_consistency_main.py)
-
-
+`field_matching_utils.py` - Functions for matching dataset field names with required field names
 
 ## Usage
 
-The tool can be used by running the any of the main python modules.
+The tool can be used by running the `dcard_completeness_main.py` python module.
 
-The modules accept 3 arguments:
+The module accepts 3 arguments:
 
-`--data_path`: Path to dataset metadata file on which assessment needs to be performed
+`--data_path`: Path to dataset metadata file on which completeness assessment needs to be performed
 
 `--reference_path`:  Path to metadata reference dictionary
 
-`--cc_level`: The level at which assessment should be performed. This argument is used to specify a subgroup within the chosen metadata dictionary.
+`--cc_level`: The level at which completeness should be assessed. This argument is used to specify a subgroup within the chosen metadata dictionary.
 
 
 ### Inputs
@@ -219,27 +220,71 @@ $\hspace{0.8in}\color{black}{\large{...}}$
 
 Choosing a subgroup using the `--cc_level` parameter will evaluate completeness with respect to all the fields nested within that subgroup. The default value for this argument is `None` which uses all the fields inside the dictionary.
 
+Besides dictionary-based matching, there are some other additional experimental matching methods implemented in this framework. The methods can be used by modifying the flags in the `header_matching_methods` dictionary in `dcard_completeness_main.py`.
+
+The `header_matching_methods` dictionary consists of a set of methods that are executed in order.
+The value for each method is a tuple in which the first item is a flag to enable/disable the method
+and the second item contains any additional parameters needed for that method (or None).
+`UA` refers to User-Assisted. Enabling this method will use either fuzzy matching or token matching using a language model
+to return likely matches for header fields that could not be automatically matched.
+For each such field, the user will receive a prompt to select a field from one of the top N 
+most likely options (specified by 'limit').
+
+```python
+header_matching_methods = {
+        'strict':(False,None),
+        'dictionary':(True,{'field_dictionary':metadata_reference_dictionary}),
+        'soft': (False,None),
+        'fuzzy': (False,{'threshold':80}),
+        'UA':(False,{'ranking_method':'LM','limit':4})  # 'fuzzy' or 'LM'
+    }
+```
 
 ### Output
 
-The main outputs of the individual modules are data features as well as plots saved in the output directory.
+The main outputs of dcard-completeness are completeness reports returned by the functions `dataset_level_completeness_check` and `record_level_completeness_check`.
 
+`dataset_level_completeness_check` returns a dictionary with available, missing, and unexpected headers in a metadata file.
 
-## Getting started example
+`record_level_completeness_check` returns record-wise and field-wise completion statistics of metadata field values in a metadata file.
 
-The DCard3D_demo.ipynb notebook is a good starting point featuring input and output examples for all 3 modules for Whole Slide Imaging and Digital Mammography.
+The main script also outputs text in the terminal window and a set of completeness plots which are saved in the `/output` directory.
 
-## Files and Data
+Given below is the terminal output for the VinDr-Mammo `metadata.csv` file using the `dm_metadata_dictionary.json` dictionary and performing assessment for the **Core Fields**.
 
-The `/data` directory contains the metadata reference dictionaries needed for the assessment modules.
+```
+Assessing completeness for metadata file 'metadata.csv'
+Required Header         Matched Dataset Header
+---------------------------------------------
+Patient Birth Date/Age  Patient's Age
+Breast Orientation      View Position
+Laterality              Image Laterality
+Image Dimension         Rows        
+Pixel Spacing           Imager Pixel Spacing
+Manufacturer            Manufacturer
+Manufacturer/Model      Manufacturer's Model Name
 
-## Contact and Contributions
+Missing Headers: ['Patient ID', 'Patient Sex', 'History/Prior', 'Race', 'Ethnicity', 'History/Family', 'Marital status', 'ZIP Code', 'Study ID', 'Study Date', 'Study Time', 'Modality', 'Image Type', 'Image ID', 'Resolution', 'File Format', 'Compression Type', 'Bits Stored', 'Manufacturer/Year', 'Manufacturer/Regulatory']
 
-Seyed Kahaki: [seyed.kahaki@fda.hhs.gov](seyed.kahaki@fda.hhs.gov)
+Unexpected Headers: ['SOP Instance UID', 'Series Instance UID', 'SOP Instance UID.1', 'Photometric Interpretation', 'Columns', 'Pixel Spacing', 'Pixel Padding Value', 'Pixel Padding Range Limit', 'Window Center', 'Window Width', 'Rescale Intercept', 'Rescale Slope', 'Rescale Type', 'Window Center & Width Explanation']
 
-Tahsin Rahman: [tahsin.rahman@fda.hhs.gov](tahsin.rahman@fda.hhs.gov)
+Completeness Score: 0.26
 
-## Acknowledgements
+== Record Completeness Summary ==
+Total number of records: 20000
+Number of complete records: 0
+   Missing Values per Record  Number of Records
+0                         20              17740
+1                         21               2260
+```
+#### Figure outputs
 
-This project was supported in part by an appointment to the ORISE Research Participation Program at the Center for Devices and Radiological Health, U.S. Food and Drug Administration, administered by the Oak Ridge Institute for Science and Education through an interagency agreement between the U.S. Department of Energy and FDA/CDRH.
+The following figures visualizing the completeness information are also produced:
 
+1. **Required Field Completeness Summary**: A stacked barchart with bars corresponding to every required field specified by the completeness check level for the assessment. For each available field in the barchart, the percentage of data records that contain a value for the field in the metadata file is shown in blue and the remainder is shown in red. Unavailable required fields are represented by hatched bars. The output shown here is for 'Core Fields' assessment on the VinDr-Mammo metadata file.
+
+![Required_Field_Completeness_Summary_VinDrMammo](./images/Required_Field_Completeness_Summary_VinDrMammo.png)
+
+2. **Completeness of Fields present in Metadata**: A stacked barchart with bars corresponding to all the fields present in the provided metadata file, regardless of their requirement for completeness assessment. For each field in the barchart, the percentage of data records that contain a value for the field in the metadata file is shown in green and the remainder is shown in red. The output shown here is for 'Core Fields' assessment on the VinDr-Mammo metadata file.
+
+![Available_Field_Completeness_VinDrMammo](./images/Available_Field_Completeness_VinDrMammo.png)
