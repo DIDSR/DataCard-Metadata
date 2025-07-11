@@ -51,9 +51,9 @@ DataCard Metadata comprises several integrated modules:
       * For a target field and a subgroup field, performs assessment of the subgroup distribution of values and produces distribution visualizations. 
 
 4. **IPython Notebook with demo of end-to-end pipeline** ([DCard3C_demo.ipynb](https://github.com/DIDSR/DataCard-Metadata/blob/main/DCard3C_demo.ipynb))
-   * **[Completeness Demo](https://github.com/DIDSR/DataCard-Metadata/blob/main/DCard3C_demo.ipynb#completeness-demo)**
-   * **[Coverage Demo](https://github.com/DIDSR/DataCard-Metadata/blob/main/DCard3C_demo.ipynb#coverage-demo)**
-   * **[Consistency Demo](https://github.com/DIDSR/DataCard-Metadata/blob/main/DCard3C_demo.ipynb#consistency-demo)**
+   * **[Completeness Demo](https://github.com/DIDSR/DataCard-Metadata/blob/main/DCard3C_demo.ipynb#cell-2)**
+   * **[Coverage Demo](https://github.com/DIDSR/DataCard-Metadata/blob/main/DCard3C_demo.ipynb#cell-4)**
+   * **[Consistency Demo](https://github.com/DIDSR/DataCard-Metadata/blob/main/DCard3C_demo.ipynb#cell-9)**
 
 
 
