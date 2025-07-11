@@ -13,7 +13,7 @@ First, the matched field map for a metadata file is generated using the complete
 is performed on the subgroup distribution of values for the target field. 
 An outline of this pipeline is given below.
 
-![Consistency Assessment Pipeline](../images/Coverage_Pipeline.png)
+![Consistency Assessment Pipeline](../images/DCard_Metadata_Pipelines.png)
 
 The current iteration of the code takes a metadata csv file and a json metadata reference dictionary as input.
 A list of matched data header fields are returned as terminal output.
@@ -41,7 +41,7 @@ The module accepts 3 arguments:
 
 ### Inputs
 
-"""
+
 Perform consistency check of coverage for a specified "target" field against a specified "subgroup" field.
 
 Two coverage parameter dictionaries need to be specified, one of each field. 

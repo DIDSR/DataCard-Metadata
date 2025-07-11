@@ -26,8 +26,6 @@ A visualization of the counts of different values for the target field is also p
 
 ## Directory organization
 
-`dcard_coverage_main.py` - Main python module
-
 `compute_coverage.py` - Functions for computing coverage for a target field
 
 ## Usage

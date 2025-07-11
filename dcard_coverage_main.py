@@ -24,7 +24,7 @@ def main():
         metadata_df2 = None
 
     # Create output directory to store visualizations
-    os.makedirs(os.path.join(parent_dir,'output'), exist_ok=True)
+    os.makedirs('output', exist_ok=True)
 
     # Load required metadata fields from a json dictionary and retrieve the list of aliases for each field.
     metadata_reference_dictionary = get_dictionary(metadata_reference_path,completeness_check_level)
@@ -101,6 +101,7 @@ def main():
         - target_field : The metadata field for which coverage will be computed
         - field_values : All possible values for the target field. If set to None, field_values will be generated from the unique values of the target_field in the metadata.
         - dtype (Optional): 'str' for string or 'int' for integer type. Needed along with regex to extract data values from metadata field item strings
+        - value_buckets (Optional): For numeric variables, a list of buckets to group values into before computing coverage
         - metric: 'KLD' for Kullback–Leibler divergence or 'HD' for Hellinger distance
         - fill_na (Optional): Fill NA values in target field with a specific value. Set to 'None' to drop all NA values
         - thresholds (Optional): For numeric variables, only compute coverage within a specified range of values. Eg: [10, 80]
@@ -108,9 +109,10 @@ def main():
     """
     
     coverage_params = {
-        'target_field': "Manufacturer",    
+        'target_field': "Resolution/MPP",    
         'field_values': None,
         'dtype': 'str',
+        'value_buckets': [0.25, 0.5],
         'metric': 'HD',
         'fill_na': None,
         'thresholds': None,

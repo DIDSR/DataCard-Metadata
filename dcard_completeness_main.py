@@ -95,7 +95,7 @@ def main():
 
         # Step 7: Perform record-level completeness check
         # This checks individual columns and rows in the metadata file and reports completion information
-        record_level_results = record_level_completeness_check(metadata_df, required_fields, available_header_map,visualize=True,savefig=False)
+        record_level_results = record_level_completeness_check(metadata_df, required_fields, available_header_map,visualize=True,savefig=True)
     else:
         # Handle cases where either the dataset or required fields failed to load.
         print("Failed to load dataset or required fields.")

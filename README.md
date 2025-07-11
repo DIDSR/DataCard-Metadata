@@ -8,11 +8,9 @@ This repository contains code for the assessment of Completeness, Coverage, and 
 ## Overview
 
 This tool is intended to take a metadata table for a medical imaging dataset and generate a report indicating the
-level of Completeness, Coverage, and Consistency of the metadata. To do so, a modality specific metadata reference dictionary containing required field information is used along with the metadata file.
+level of Completeness, Coverage, and Consistency of the metadata. To do so, a modality specific metadata reference dictionary containing required field information is used along with the metadata file. An outline of this pipeline is given below.
 
-The current iteration of the code takes a metadata csv file and a json metadata reference dictionary as input.
-A list of matched, missing, and unexpected data header fields are returned as terminal output.
-Visualizations for field and record completeness can also be produced and saved in the `/output` directory.
+![Metadata Assessment Pipeline](./images/DCard_Metadata_Pipelines.png)
 
 
 ## Installation
@@ -40,17 +38,28 @@ After activation, the required packages can be installed inside the environment 
 
 DataCard Metadata comprises several integrated modules:
 
-1. **Completeness Assessment** (dcard_completeness_main.py)
+1. **Completeness Assessment** ([dcard_completeness_main.py](https://github.com/DIDSR/DataCard-Metadata/blob/main/dcard_completeness_main.py))
 
-1. **Coverage Assessment** (dcard_coverage_main.py)
+      * Identifies available, missing, and unexpected data header fields in a metadata files and produces visualizations for field and record completeness.
 
-1. **Consistency Assessment** (dcard_consistency_main.py)
+2. **Coverage Assessment** ([dcard_coverage_main.py](https://github.com/DIDSR/DataCard-Metadata/blob/main/dcard_coverage_main.py))
+
+      * Performs assessment of the distribution of values for a target field, qunatifies deviation from a reference distribution, and produces distribution visualizations. 
+
+3. **Consistency Assessment** ([dcard_consistency_main.py](https://github.com/DIDSR/DataCard-Metadata/blob/main/dcard_consistency_main.py))
+
+      * For a target field and a subgroup field, performs assessment of the subgroup distribution of values and produces distribution visualizations. 
+
+4. **IPython Notebook with demo of end-to-end pipeline** ([DCard3C_demo.ipynb](https://github.com/DIDSR/DataCard-Metadata/blob/main/DCard3C_demo.ipynb))
+   * **[Completeness Demo](https://github.com/DIDSR/DataCard-Metadata/blob/main/DCard3C_demo.ipynb#completeness-demo)**
+   * **[Coverage Demo](https://github.com/DIDSR/DataCard-Metadata/blob/main/DCard3C_demo.ipynb#coverage-demo)**
+   * **[Consistency Demo](https://github.com/DIDSR/DataCard-Metadata/blob/main/DCard3C_demo.ipynb#consistency-demo)**
 
 
 
 ## Usage
 
-The tool can be used by running the any of the main python modules.
+The tool can be used by running the any of the main python modules or the IPython Notebook.
 
 The modules accept 3 arguments:
 
@@ -217,17 +226,30 @@ $\hspace{0.8in}\color{black}{\large{...}}$
 
 </details>
 
-Choosing a subgroup using the `--cc_level` parameter will evaluate completeness with respect to all the fields nested within that subgroup. The default value for this argument is `None` which uses all the fields inside the dictionary.
+Choosing a subgroup using the `--cc_level` parameter will evaluate completeness with respect to all the fields nested within that subgroup.
 
 
 ### Output
 
 The main outputs of the individual modules are data features as well as plots saved in the output directory.
 
+#### Completeness
+A list of matched, missing, and unexpected data header fields are returned as terminal output.
+Visualizations for field and record completeness can also be produced and saved in the `/output` directory.
+
+#### Coverage
+A list of matched data header fields are returned as terminal output, and coverage information is provided for the selected field in the form of
+a list of unique values and the value of the divergence measure from the reference distribution.
+A visualization of the counts of different values for the target field is also produced and saved in the `/output` directory.
+
+#### Consistency
+A list of matched data header fields are returned as terminal output.
+A visualization of the counts of different values for the target field per subgroup is also produced and saved in the `/output` directory.
+
 
 ## Getting started example
 
-The DCard3D_demo.ipynb notebook is a good starting point featuring input and output examples for all 3 modules for Whole Slide Imaging and Digital Mammography.
+The **[DCard3C_demo.ipynb](https://github.com/DIDSR/DataCard-Metadata/blob/main/DCard3C_demo.ipynb)** notebook is a good starting point featuring input and output examples for all 3 modules for Whole Slide Imaging and Digital Mammography.
 
 ## Files and Data
 

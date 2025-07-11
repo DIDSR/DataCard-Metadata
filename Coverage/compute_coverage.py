@@ -1,8 +1,9 @@
-import numpy as np
-import matplotlib.pyplot as plt
 import sys
 import os
 import time
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
 import scipy.stats as stats
 import re
 import ast
@@ -139,6 +140,24 @@ def get_coverage_df(dataset_df_full, required_fields, available_headers=None, co
     return data_values
 
 
+def bucket_values(data_values, value_buckets):
+    
+    buckets = sorted(value_buckets)
+
+    if len(buckets) == 1:
+        bin_edges = [-np.inf, np.inf]
+        labels = buckets
+    else:
+        bin_edges = [-np.inf]
+        bin_edges.extend([(buckets[i] + buckets[i+1]) / 2 for i in range(len(buckets)-1)])
+        bin_edges.append(np.inf)
+        labels = buckets
+    
+    data_values = pd.cut(data_values, bins=bin_edges, labels=labels, include_lowest=True)
+
+    return data_values
+
+    
 
 
 def coverage_check(dataset_df_full, required_fields, available_headers=None, dataset_df2_full=None, available_headers2=None, coverage_params=None, visualize=False,savefig=False):
@@ -156,8 +175,18 @@ def coverage_check(dataset_df_full, required_fields, available_headers=None, dat
     """
     data_values = get_coverage_df(dataset_df_full, required_fields, available_headers, coverage_params)
 
+    group_values_into_buckets = False
+    if 'value_buckets' in coverage_params:
+        if coverage_params['value_buckets'] is not None:
+            group_values_into_buckets = True
+
+    if group_values_into_buckets:
+        data_values = bucket_values(data_values, coverage_params['value_buckets'])
+
     if dataset_df2_full is not None:
         data_values2 = get_coverage_df(dataset_df2_full, required_fields, available_headers2, coverage_params)
+        if group_values_into_buckets:
+            data_values2 = bucket_values(data_values2, coverage_params['value_buckets'])
         divergence_value, features = get_divergence_dfs(data_values, data_values2, field_values=coverage_params['field_values'], metric=coverage_params['metric'], fill_value=1)
     else:
         divergence_value, features = get_divergence_dfs(data_values, df2=None, field_values=coverage_params['field_values'], metric=coverage_params['metric'], fill_value=1)

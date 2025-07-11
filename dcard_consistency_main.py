@@ -79,7 +79,9 @@ def main():
 
 
     """
-    Perform coverage check for a specified field.
+    Perform consistency check of coverage for a specified "target" field against a specified "subgroup" field.
+
+    Two coverage parameter dictionaries need to be specified, one of each field. 
 
     The coverage_params dictionary consists of the required parameters for the coverage check:
     
@@ -100,14 +102,14 @@ def main():
         'metric': 'HD',
         'fill_na': None,
         'thresholds': [11, 100],
-        'bin_count': 10,
+        'bin_count': 15,
     }
 
     coverage_params_target = {
         'target_field': "mpp",
         'field_values': None,
         'dtype': 'str',
-        'value_buckets': [0.25, 0.5],
+        'value_buckets': None,
         'metric': 'HD',
         'fill_na': None,
         'thresholds': None,
