@@ -11,6 +11,17 @@ from scipy.special import rel_entr
 
 
 def calculate_hellinger_dist(counts_p, counts_q, symmetric=False):
+    """Calculates the Hellinger distance between two probability distributions
+    derived from count data.
+    
+    :param counts_p: Count data for the first distribution.
+    :type counts_p: array-like
+    :param counts_q: Count data for the second distribution.
+    :type counts_q: array-like
+    :return: Hellinger distance value
+    :rtype: float
+    
+    """
     p = np.asarray(counts_p, dtype=np.float64)
     q = np.asarray(counts_q, dtype=np.float64)
 
@@ -21,6 +32,19 @@ def calculate_hellinger_dist(counts_p, counts_q, symmetric=False):
 
 
 def calculate_kl_div(counts_p, counts_q, symmetric=False):
+    """Calculates the Kullback-Leibler divergence between two probability distributions
+    derived from count data.
+    
+    :param counts_p: Count data for the first distribution.
+    :type counts_p: array-like
+    :param counts_q: Count data for the second distribution.
+    :type counts_q: array-like
+    :param symmetric: If True, returns the symmetric KL divergence (sum of both directions).
+    :type symmetric: bool
+    :return: KL divergence value, or symmetric KL divergence if symmetric=True
+    :rtype: float
+    
+    """
     p = np.asarray(counts_p, dtype=np.float64)
     q = np.asarray(counts_q, dtype=np.float64)
 
@@ -37,6 +61,24 @@ def calculate_kl_div(counts_p, counts_q, symmetric=False):
         
 
 def get_divergence_dfs(df1, df2=None, field_values=None, metric="HD", fill_value=1):
+
+    """Calculates divergence between distributions from one or two dataframes using
+    specified distance metrics.
+    
+    :param df1: First dataframe or series for distribution comparison.
+    :type df1: pandas.DataFrame or pandas.Series
+    :param df2: Second dataframe or series for distribution comparison. If None, compares df1 against uniform distribution.
+    :type df2: pandas.DataFrame or pandas.Series or None
+    :param field_values: Specific field values to include in the comparison. If None, uses all unique values from the data.
+    :type field_values: array-like or None
+    :param metric: Distance metric to use for comparison ("KLD" for Kullback-Leibler divergence, "HD" for Hellinger distance).
+    :type metric: str
+    :param fill_value: Value to use for missing counts when reindexing distributions.
+    :type fill_value: int
+    :return: Tuple containing the divergence value and dictionary of normalized distributions
+    :rtype: tuple(float, dict)
+    
+    """
 
     metric_funcs = {
         "KLD": calculate_kl_div,
@@ -94,6 +136,22 @@ def get_divergence_dfs(df1, df2=None, field_values=None, metric="HD", fill_value
 
 def get_coverage_df(dataset_df_full, required_fields, available_headers=None, coverage_params=None):
 
+    """Processes a dataset to extract and clean data values for coverage analysis
+    based on specified parameters and field mappings.
+    
+    :param dataset_df_full: Complete dataset dataframe to process.
+    :type dataset_df_full: pandas.DataFrame
+    :param required_fields: List of fields that are required for analysis.
+    :type required_fields: List[str]
+    :param available_headers: Dictionary mapping required field names to actual column names in the dataset.
+    :type available_headers: dict or None
+    :param coverage_params: Dictionary containing parameters for coverage analysis including target_field, fill_na, dtype, and thresholds.
+    :type coverage_params: dict
+    :return: Processed data values from the target field ready for coverage analysis
+    :rtype: pandas.Series
+    
+    """
+
 
     target_field = coverage_params['target_field']
     assert target_field in available_headers.keys() or target_field in dataset_df_full.columns, f'Target field {target_field} not found in metadata.'
@@ -141,6 +199,18 @@ def get_coverage_df(dataset_df_full, required_fields, available_headers=None, co
 
 
 def bucket_values(data_values, value_buckets):
+
+    """Assigns data values to buckets based on specified bucket centers using
+    midpoint boundaries between adjacent buckets.
+    
+    :param data_values: Numeric data values to be categorized into buckets.
+    :type data_values: pandas.Series or array-like
+    :param value_buckets: List of bucket center values used to define categorization ranges.
+    :type value_buckets: List[float] or List[int]
+    :return: Categorical data with values assigned to their corresponding buckets
+    :rtype: pandas.Categorical
+    
+    """
     
     buckets = sorted(value_buckets)
 
@@ -161,18 +231,31 @@ def bucket_values(data_values, value_buckets):
 
 
 def coverage_check(dataset_df_full, required_fields, available_headers=None, dataset_df2_full=None, available_headers2=None, coverage_params=None, visualize=False,savefig=False):
-    """
-    Perform a coverage check for a target field in the metadata.
 
-    Args:
-        dataset_df (pd.DataFrame): The dataset as a pandas DataFrame.
-        required_fields (list): List of required metadata fields.
-        available_headers:
-        target_field:
-
-    Returns:
-        None
+    """Performs comprehensive coverage analysis on dataset fields, including distribution
+    comparison and optional visualization of value distributions.
+    
+    :param dataset_df_full: Primary dataset dataframe for coverage analysis.
+    :type dataset_df_full: pandas.DataFrame
+    :param required_fields: List of fields that are required for the analysis.
+    :type required_fields: List[str]
+    :param available_headers: Dictionary mapping required field names to actual column names in the primary dataset.
+    :type available_headers: dict or None
+    :param dataset_df2_full: Optional second dataset dataframe for comparative coverage analysis.
+    :type dataset_df2_full: pandas.DataFrame or None
+    :param available_headers2: Dictionary mapping required field names to actual column names in the second dataset.
+    :type available_headers2: dict or None
+    :param coverage_params: Dictionary containing analysis parameters including target_field, metric, field_values, value_buckets, and bin_count.
+    :type coverage_params: dict
+    :param visualize: Whether to generate visualization plots of the coverage analysis.
+    :type visualize: bool
+    :param savefig: Whether to save generated plots to file with timestamp.
+    :type savefig: bool
+    :return: Dictionary containing normalized distribution features from the analysis
+    :rtype: dict
+    
     """
+
     data_values = get_coverage_df(dataset_df_full, required_fields, available_headers, coverage_params)
 
     group_values_into_buckets = False

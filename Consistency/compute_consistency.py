@@ -8,6 +8,19 @@ from Coverage.compute_coverage import *
 
 
 def assign_band(value, bands, labels):
+    """Assigns a value to the appropriate band based on defined ranges and returns
+    the corresponding label.
+    
+    :param value: Numeric value to be assigned to a band.
+    :type value: float or int
+    :param bands: List of tuples defining the lower and upper bounds for each band.
+    :type bands: List[tuple]
+    :param labels: List of labels corresponding to each band range.
+    :type labels: List[str]
+    :return: Label of the band that contains the value, or 'Unavailable' if no band matches
+    :rtype: str
+    
+    """
     for i, (low, high) in enumerate(bands):
         if low <= value <= high:
             return labels[i]
@@ -15,17 +28,27 @@ def assign_band(value, bands, labels):
 
 
 def consistency_check(dataset_df, required_fields, available_headers, coverage_params_subgroup, coverage_params_target,visualize=True,savefig=False):
-    """
-    Perform a consistency check for a target field in the metadata.
 
-    Args:
-        dataset_df (pd.DataFrame): The dataset as a pandas DataFrame.
-        required_fields (list): List of required metadata fields.
-        available_headers:
-        target_field:
-
-    Returns:
-        None
+    """Performs consistency analysis by examining the distribution of target field values
+    across different subgroups, with optional visualization of cross-tabulated results.
+    
+    :param dataset_df: Dataset dataframe containing the fields to analyze.
+    :type dataset_df: pandas.DataFrame
+    :param required_fields: List of fields that are required for the analysis.
+    :type required_fields: List[str]
+    :param available_headers: Dictionary mapping required field names to actual column names in the dataset.
+    :type available_headers: dict
+    :param coverage_params_subgroup: Dictionary containing parameters for subgroup field analysis including target_field, thresholds, and bin_count.
+    :type coverage_params_subgroup: dict
+    :param coverage_params_target: Dictionary containing parameters for target field analysis including target_field and optional value_buckets.
+    :type coverage_params_target: dict
+    :param visualize: Whether to generate visualization plots of the consistency analysis.
+    :type visualize: bool
+    :param savefig: Whether to save generated plots to file with timestamp.
+    :type savefig: bool
+    :return: DataFrame containing the consistency analysis results with subgroup, target, and band assignments
+    :rtype: pandas.DataFrame
+    
     """
 
     subgroup_values = get_coverage_df(dataset_df, required_fields, available_headers=available_headers, coverage_params=coverage_params_subgroup)
