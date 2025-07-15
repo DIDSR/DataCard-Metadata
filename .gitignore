@@ -1,6 +1,9 @@
 output/
 docs/
+data/VinDr_Mammo/metadata.csv
+data/WashU/WashU_merged_metadata.csv
 Completeness/CompletenessNotebook.ipynb
+.dcardtest/
 .ipynb_checkpoints/
 __pycache__/
 Notes.md

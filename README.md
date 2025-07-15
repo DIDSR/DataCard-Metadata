@@ -117,110 +117,7 @@ Metadata dictionaries follow the three level structure shown below:
 
 ----
 
-$\color{black}{\large{\textbf{- General Fields:}}} \space \color{gray}{\text{\\# The typical set of expected fields for a particular data modality.}}$
-
-$\hspace{0.4in}\color{black}{\large{\textbf{- Core Fields:}}}\space \color{gray}{\text{\\# Required fields over which basic completeness is assessed.}}$
-
-$\hspace{0.8in}\color{black}{\large{\textbf{- Patient ID:}} \space  \\{ } \space \color{gray}{\text{\\# A required metadata field dictionary entry}}$
-
-$\hspace{1.2in}\color{black}{\textbf{- description:}}  \space \color{darkblue}{\text{Unique ID to identify different records from the same patient.}}$
-
-$\hspace{1.2in}\color{black}{\textbf{- dtype:}} \space \color{darkblue}{\text{string}}$
-
-$\hspace{1.2in}\color{black}{\textbf{- aliases:}} \space \color{darkblue}{\text{[Patient Identifier, Unique Patient ID, DICOM Patient ID]}}$
-
-$\hspace{1.2in}\color{black}{\textbf{- checkCoverage:}} \space \color{darkblue}{\text{False}}$
-
-$\hspace{0.8in}\color{black}{\large{\\}}}$
-
-
-$\hspace{0.8in}\color{black}{\large{\textbf{- Patient Birth Date/Age:}} \space  \\{ }$
-
-
-$\hspace{1.2in}\color{black}{\textbf{- description:}}  \space \color{darkblue}{\text{Birth date or age of patient}}$
-
-$\hspace{1.2in}\color{black}{\textbf{- dtype:}} \space \color{darkblue}{\text{string}}$
-
-$\hspace{1.2in}\color{black}{\textbf{- aliases:}} \space \color{darkblue}{\text{[Birth Date, Date of Birth, DOB, Age, Patient Age, Patient's Age, Age at dx]}}$
-
-$\hspace{1.2in}\color{black}{\textbf{- checkCoverage:}} \space \color{darkblue}{\text{True}}$
-
-$\hspace{0.8in}\color{black}{\large{\\}}}$
-
-
-$\hspace{0.8in}\color{black}{\large{\textbf{- Image Resolution:}} \space \\{ }$
-
-$\hspace{1.2in}\color{black}{\textbf{- description:}}  \space \color{darkblue}{\text{The resolution of the image, typically in pixels-per-inch}}$
-
-$\hspace{1.2in}\color{black}{\textbf{- dtype:}} \space \color{darkblue}{\text{int}}$
-
-$\hspace{1.2in}\color{black}{\textbf{- aliases:}} \space \color{darkblue}{\text{[Resolution, PPI, Pixels per inch]}}$
-
-$\hspace{1.2in}\color{black}{\textbf{- checkCoverage:}} \space \color{darkblue}{\text{True}}$
-
-$\hspace{0.8in}\color{black}{\large{\\}}}$
-
-$\hspace{1.2in}\color{black}{\textbf{...}}$
-
-
-$\hspace{0.4in}\color{black}{\large{\textbf{- Additional Fields:}}}\space \color{gray}{\text{\\# Typically available fields that are not part of basic completeness assessment.}}$
-
-$\hspace{0.8in}\color{black}{\large{\textbf{- Photometric Interpretation:}}\space \\{ }$
-
-$\hspace{1.2in}\color{black}{\textbf{- description:}} \space \color{darkblue}{\text{Intended interpretation of the image pixel data (Monochrome 1 or Monochrome 2)}}$
-
-$\hspace{1.2in}\color{black}{\textbf{- dtype:}} \space \color{darkblue}{\text{string}}$
-
-$\hspace{1.2in}\color{black}{\textbf{- aliases:}}  \space \color{darkblue}{\text{[]}}$
-
-$\hspace{1.2in}\color{black}{\textbf{- checkCoverage:}} \space \color{darkblue}{\text{False}}$
-
-$\hspace{0.8in}\color{black}{\large{\\}}}$
-
-$\hspace{1.2in}\color{black}{\large{...}}$
-
-
-
-$\color{black}{\large{\textbf{- Modality Specific Fields:}}}\space \color{gray}{\text{\\# Groups of fields associated with different sub-modalities.}}$
-
-$\hspace{0.4in}\color{black}{\large{\textbf{- DBT:}}}\space \color{gray}{\text{\\# Fields found in Digital Breast Tomosynthesis data.}}$
-
-$\hspace{0.8in}\color{black}{\large{\textbf{- Projection Views:}}\space \\{ }$
-
-$\hspace{1.2in}\color{black}{\textbf{- description:}}\space \color{darkblue}{\text{Number of projection views used for the DBT acquisition}}$
-
-$\hspace{1.2in}\color{black}{\textbf{- dtype:}} \space \color{darkblue}{\text{int}}$
-
-$\hspace{1.2in}\color{black}{\textbf{- aliases:}} \space \color{darkblue}{\text{[Projections, DBT Projections, DICOM Patient ID]}}$
-
-$\hspace{1.2in}\color{black}{\textbf{- checkCoverage:}} \space \color{darkblue}{\text{True}}$
-
-$\hspace{0.8in}\color{black}{\large{\\}}}$
-
-$\hspace{1.2in}\color{black}{\large{...}}$
-
-$\hspace{0.8in}\color{black}{\large{...}}$
-
-
-$\color{black}{\large{\textbf{- Task Specific Fields:}}}\space \color{gray}{\text{\\# Groups of fields associated with different target tasks.}}$
-
-$\hspace{0.4in}\color{black}{\large{\textbf{- Density Estimation:}}}\space \color{gray}{\text{\\# Fields required for breast density estimation task.}}$
-
-$\hspace{0.8in}\color{black}{\large{\textbf{- Breast Density:}}\space \\{ }$
-
-$\hspace{1.2in}\color{black}{\textbf{- description:}}\space \color{darkblue}{\text{Breast density expressed as a numeric value or ACR category}}$
-
-$\hspace{1.2in}\color{black}{\textbf{- dtype:}} \space \color{darkblue}{\text{string}}$
-
-$\hspace{1.2in}\color{black}{\textbf{- aliases:}} \space \color{darkblue}{\text{[Density, Breast Composition, ACR, ACR Value]}}$
-
-$\hspace{1.2in}\color{black}{\textbf{- checkCoverage:}} \space \color{darkblue}{\text{True}}$
-
-$\hspace{1.2in}\color{black}{\large{\\}}}$
-
-$\hspace{1.2in}\color{black}{\large{...}}$
-
-$\hspace{0.8in}\color{black}{\large{...}}$
+![Metadata Reference Dictionary Structure](./images/DCard_Metadata_Dictionary_Structure.png)
 
 -----
 
@@ -265,3 +162,6 @@ Tahsin Rahman: [tahsin.rahman@fda.hhs.gov](tahsin.rahman@fda.hhs.gov)
 
 This project was supported in part by an appointment to the ORISE Research Participation Program at the Center for Devices and Radiological Health, U.S. Food and Drug Administration, administered by the Oak Ridge Institute for Science and Education through an interagency agreement between the U.S. Department of Energy and FDA/CDRH.
 
+## Disclaimer
+
+This software and documentation (the "Software") were developed at the **US Food and Drug Administration** (FDA) by employees of the Federal Government in the course of their official duties. Pursuant to Title 17, Section 105 of the United States Code, this work is not subject to copyright protection and is in the public domain. Permission is hereby granted, free of charge, to any person obtaining a copy of the Software, to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, or sell copies of the Software or derivatives, and to permit persons to whom the Software is furnished to do so. FDA assumes no responsibility whatsoever for use by other parties of the Software, its source code, documentation or compiled executables, and makes no guarantees, expressed or implied, about its quality, reliability, or any other characteristic. Further, use of this code in no way implies endorsement by the FDA or confers any advantage in regulatory decisions. Although this software can be redistributed and/or modified freely, we ask that any derivative works bear some notice that they are derived from it, and any modified versions bear some notice that they have been modified.

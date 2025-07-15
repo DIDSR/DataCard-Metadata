@@ -169,7 +169,7 @@ def get_LM_matches(dataset_fields, required_fields, limit = 5):
 
     """
     try:
-        model = SentenceTransformer('/projects01/didsr-aiml/tahsin.rahman/transformer_models/sentence-transformers/all-MiniLM-L6-v2/', local_files_only=True)
+        model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
         matches = {}
     
         dataset_embeddings = model.encode(dataset_fields, convert_to_tensor=True)
