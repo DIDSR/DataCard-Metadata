@@ -1,6 +1,6 @@
 # DataCard - Metadata
 
-This repository contains code for the assessment of Completeness, Coverage, and Consistency of patient datasets.
+A comprehensive tool for assessing the **Completeness**, **Coverage**, and **Consistency** of patient datasets in medical imaging.
 
 
 ## Overview
