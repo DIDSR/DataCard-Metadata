@@ -1,6 +1,6 @@
 # DataCard - Metadata Assessment Tool
 
-A comprehensive tool for assessing the **Completeness**, **Coverage**, and **Consistency** of patient datasets in medical imaging.
+A comprehensive tool for assessing the **Completeness**, **Coverage**, and **Consistency** of patient datasets.
 
 
 ## Overview
