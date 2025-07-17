@@ -1,6 +1,6 @@
 # DataCard - Metadata
 
-This repository contains code for the assessment of Completeness, Coverage, and Consistency for the DataCard project.
+This repository contains code for the assessment of Completeness, Coverage, and Consistency of patient datasets.
 
 
 ## Overview
