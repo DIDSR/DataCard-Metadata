@@ -1,13 +1,11 @@
 # Datacard - Metadata Consistency Assessment
 
-This directory contains code for the assessment of metadata Consistency for the DataCard project.
+This directory contains code for assessing the **Consistency** of patient datasets in medical imaging.
 
-> [!NOTE]
-> **This code is work-in-progress.**
 
 ## Overview
 
-This tool is intended to work jointly with the Coverage Completeness assessment pipeline to assess Consistency for a target field against a subgroup field in a metadata file. 
+This tool is intended to work jointly with the Coverage and Completeness assessment pipeline to assess Consistency for a target field against a subgroup field in a metadata file. 
 
 First, the matched field map for a metadata file is generated using the completeness assessment pipeline, after which an assessment
 is performed on the subgroup distribution of values for the target field. 
@@ -16,7 +14,7 @@ An outline of this pipeline is given below.
 ![Consistency Assessment Pipeline](../images/DCard_Metadata_Pipelines.png)
 
 The current iteration of the code takes a metadata csv file and a json metadata reference dictionary as input.
-A list of matched data header fields are returned as terminal output.
+A list of matched data header fields is returned as terminal output.
 A visualization of the counts of different values for the target field per subgroup is also produced and saved in the `/output` directory.
 
 
@@ -36,7 +34,7 @@ The module accepts 3 arguments:
 
 `--reference_path`:  Path to metadata reference dictionary
 
-`--cc_level`: The level at which completeness should be assessed. This argument is used to specify a subgroup within the chosen metadata dictionary.
+`--cc_level`: Completeness Check level. This argument is used to specify a subgroup level within the chosen metadata dictionary for completeness assessment.
 
 
 ### Inputs

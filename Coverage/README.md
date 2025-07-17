@@ -1,9 +1,6 @@
 # Datacard - Metadata Coverage Assessment
 
-This directory contains code for the assessment of metadata Coverage for the DataCard project.
-
-> [!NOTE]
-> **This code is work-in-progress.**
+This directory contains code for assessing the **Coverage** of patient datasets in medical imaging.
 
 ## Overview
 
@@ -18,7 +15,7 @@ An outline of this pipeline is given below.
 The current iteration of the code takes a metadata csv file and a json metadata reference dictionary as input.
 By default, divergence calculation is performed against a uniform distribution of possible values of the target field.
 A second metadata file can optionally be provided in which case divergence is calculated using the same field in the second metadata file as reference.
-A list of matched data header fields are returned as terminal output, and coverage information is provided for the selected field in the form of
+A list of matched data header fields is returned as terminal output, and coverage information is provided for the selected field in the form of
 a list of unique values and the value of the divergence measure from the reference distribution.
 A visualization of the counts of different values for the target field is also produced and saved in the `/output` directory.
 
@@ -40,7 +37,7 @@ The module accepts 3 arguments:
 
 `--reference_path`:  Path to metadata reference dictionary
 
-`--cc_level`: The level at which completeness should be assessed. This argument is used to specify a subgroup within the chosen metadata dictionary.
+`--cc_level`:  Completeness Check level. This argument is used to specify a subgroup level within the chosen metadata dictionary for completeness assessment.
 
 
 ### Inputs

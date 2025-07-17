@@ -2,9 +2,6 @@
 
 This module contains code for the assessment of metadata Completeness for the DataCard project.
 
-> [!NOTE]
-> **This code is work-in-progress.**
-
 ## Overview
 
 This tool is intended to take a metadata table for a medical imaging dataset and generate a report indicating the
@@ -14,7 +11,7 @@ field information is used along with the metadata file. An outline of this pipel
 ![Completeness Assessment Pipeline](../images/Completeness_Pipeline.png)
 
 The current iteration of the code takes a metadata csv file and a json metadata reference dictionary as input.
-A list of matched, missing, and unexpected data header fields are returned as terminal output.
+Lists of matched, missing, and unexpected data header fields are returned as terminal output.
 Visualizations for field and record completeness can also be produced and saved in the `/output` directory.
 
 
@@ -38,7 +35,7 @@ The module accepts 3 arguments:
 
 `--reference_path`:  Path to metadata reference dictionary
 
-`--cc_level`: The level at which completeness should be assessed. This argument is used to specify a subgroup within the chosen metadata dictionary.
+`--cc_level`:  Completeness Check level. This argument is used to specify a subgroup level within the chosen metadata dictionary for completeness assessment.
 
 
 ### Inputs
