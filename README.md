@@ -67,7 +67,7 @@ The modules accept 3 arguments:
 
 `--reference_path`:  Path to metadata reference dictionary
 
-`--cc_level`: The level at which assessment should be performed. This argument is used to specify a subgroup within the chosen metadata dictionary.
+`--cc_level`: The level at which assessment could be performed. This argument is used to specify a subgroup within the chosen metadata dictionary.
 
 
 ### Inputs
