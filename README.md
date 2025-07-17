@@ -29,7 +29,14 @@ After activation, the required packages can be installed inside the environment 
 
 ```
    python3 -m pip install -r requirements.txt
+
 ```
+
+**Tested Environment**
+
+* Linux - Ubuntu 22.04 LTS
+
+* Python 3.10.12
 
 
 ## Modules
@@ -129,7 +136,7 @@ Choosing a subgroup using the `--cc_level` parameter will evaluate completeness 
 The main outputs of the individual modules are data features as well as plots saved in the output directory.
 
 #### Completeness
-A list of matched, missing, and unexpected data header fields are returned as terminal output.
+A list of matched, missing, and unexpected data header fields is returned as terminal output.
 Visualizations for field and record completeness can also be produced and saved in the `/output` directory.
 
 #### Coverage
