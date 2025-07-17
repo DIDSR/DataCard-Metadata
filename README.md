@@ -2,8 +2,6 @@
 
 This repository contains code for the assessment of Completeness, Coverage, and Consistency for the DataCard project.
 
-> [!NOTE]
-> **This code is work-in-progress.**
 
 ## Overview
 
