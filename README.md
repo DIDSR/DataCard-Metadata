@@ -1,4 +1,4 @@
-# DataCard - Metadata Assessment Tool
+# M3C: Metadata 3C (**Completeness**, **Coverage**, and **Consistency**) Assessment Tool
 
 A comprehensive tool for assessing the **Completeness**, **Coverage**, and **Consistency** of patient datasets.
 
